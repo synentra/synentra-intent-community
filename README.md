@@ -1,4 +1,4 @@
-# Vectra Intent Classification Project
+# Vectra Intent Classification Model (VICM)
 
 This repository contains code and resources for training, evaluating, and deploying an intent classification model. The system is designed to classify user intents from natural language input, enabling downstream policy enforcement and decision-making in the Vectra ecosystem.
 
