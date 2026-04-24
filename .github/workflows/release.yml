@@ -1,18 +1,26 @@
 name: Train and Release Intent Model
 
 on:
-  workflow_dispatch:  # manual trigger
+  workflow_dispatch:
+    inputs:
+      rel_version:
+        description: 'Release version (e.g., 1.9.0-rc.1, 1.9.1)'
+        required: true
+        type: string
 
 jobs:
   train-and-release:
     runs-on: ubuntu-latest
-    # Declare outputs that you can use in later jobs if needed
     outputs:
-      version: ${{ steps.get_version.outputs.VERSION }}
+      version: ${{ steps.version.outputs.VERSION }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set version from input
+        id: version
+        run: echo "VERSION=${{ github.event.inputs.rel_version }}" >> $GITHUB_OUTPUT
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -32,22 +40,6 @@ jobs:
           pip install --upgrade pip
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install transformers datasets scikit-learn pandas "optimum[onnxruntime]"
-
-      # ---------- Version handling ----------
-      - name: Get version from file (or Git tag)
-        id: get_version
-        run: |
-          if [[ -f VERSION ]]; then
-            echo "VERSION=$(cat VERSION)" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.ref_type }}" == "tag" ]]; then
-            echo "VERSION=${{ github.ref_name }}" >> $GITHUB_OUTPUT
-          else
-            echo "VERSION=0.1.0-dev" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Print version
-        run: echo "Building version ${{ steps.get_version.outputs.VERSION }}"
-      # --------------------------------------
 
       - name: Generate training data
         run: python generate_training_data.py
@@ -70,9 +62,8 @@ jobs:
       - name: Copy vocab.txt
         run: cp ./intent_model/vocab.txt .
 
-      # Write version file to include in the artifact
       - name: Add version file
-        run: echo "${{ steps.get_version.outputs.VERSION }}" > version.txt
+        run: echo "${{ steps.version.outputs.VERSION }}" > version.txt
 
       - name: Package artifacts
         run: |
@@ -81,26 +72,42 @@ jobs:
           cp labels.json release/
           cp vocab.txt release/
           cp version.txt release/
-          (cd release && zip -r ../intent_model-${{ steps.get_version.outputs.VERSION }}.zip .)
+          ZIP_NAME="intent_model-${{ steps.version.outputs.VERSION }}.zip"
+          (cd release && zip -r ../$ZIP_NAME .)
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
 
-      # Upload the zip as a GitHub Actions artifact (available in run page)
-      - name: Upload workflow artifact
+      - name: Generate SHA256 checksum
+        run: |
+          sha256sum ${{ env.ZIP_NAME }} > ${{ env.ZIP_NAME }}.sha256
+          cat ${{ env.ZIP_NAME }}.sha256
+
+      # Upload the zip and checksum as workflow artifacts (for immediate preview)
+      - name: Upload zip artifact
         uses: actions/upload-artifact@v4
         with:
-          name: intent-model-${{ steps.get_version.outputs.VERSION }}
-          path: intent_model-${{ steps.get_version.outputs.VERSION }}.zip
+          name: intent_model-${{ steps.version.outputs.VERSION }}
+          path: ${{ env.ZIP_NAME }}
 
-      # Create a GitHub Release and attach the same zip
-      - name: Create Release and Upload Artifact
+      - name: Upload checksum artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: intent_model-${{ steps.version.outputs.VERSION }}-sha256
+          path: ${{ env.ZIP_NAME }}.sha256
+
+      # Create GitHub Release and attach both files
+      - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.get_version.outputs.VERSION }}
-          name: Intent Model ${{ steps.get_version.outputs.VERSION }}
+          tag_name: ${{ steps.version.outputs.VERSION }}
+          name: Intent Model ${{ steps.version.outputs.VERSION }}
           body: |
             - ONNX intent classifier model
             - Labels mapping (labels.json)
             - Tokenizer vocabulary (vocab.txt)
-            - Version: ${{ steps.get_version.outputs.VERSION }}
-          files: intent_model-${{ steps.get_version.outputs.VERSION }}.zip
+            - Version: ${{ steps.version.outputs.VERSION }}
+            - SHA256 checksum: see attached .sha256 file
+          files: |
+            ${{ env.ZIP_NAME }}
+            ${{ env.ZIP_NAME }}.sha256
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
