@@ -1,4 +1,3 @@
-# .github/workflows/train_and_release.yml
 name: Train and Release Intent Model
 
 on:
@@ -7,6 +6,10 @@ on:
 jobs:
   train-and-release:
     runs-on: ubuntu-latest
+    # Declare outputs that you can use in later jobs if needed
+    outputs:
+      version: ${{ steps.get_version.outputs.VERSION }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,6 +33,22 @@ jobs:
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install transformers datasets scikit-learn pandas "optimum[onnxruntime]"
 
+      # ---------- Version handling ----------
+      - name: Get version from file (or Git tag)
+        id: get_version
+        run: |
+          if [[ -f VERSION ]]; then
+            echo "VERSION=$(cat VERSION)" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref_type }}" == "tag" ]]; then
+            echo "VERSION=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "VERSION=0.1.0-dev" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Print version
+        run: echo "Building version ${{ steps.get_version.outputs.VERSION }}"
+      # --------------------------------------
+
       - name: Generate training data
         run: python generate_training_data.py
 
@@ -43,14 +62,17 @@ jobs:
           with open('./intent_model_onnx/config.json') as f:
               config = json.load(f)
           id2label = config['id2label']
-          # Convert keys to int (they might be strings)
           labels = [id2label[str(i)] for i in range(len(id2label))]
           with open('labels.json', 'w') as f:
               json.dump(labels, f)
           "
 
-      - name: Copy vocab.txt from trained tokenizer
+      - name: Copy vocab.txt
         run: cp ./intent_model/vocab.txt .
+
+      # Write version file to include in the artifact
+      - name: Add version file
+        run: echo "${{ steps.get_version.outputs.VERSION }}" > version.txt
 
       - name: Package artifacts
         run: |
@@ -58,18 +80,27 @@ jobs:
           cp ./intent_model_onnx/model.onnx release/
           cp labels.json release/
           cp vocab.txt release/
-          (cd release && zip -r ../intent_model.zip .)
+          cp version.txt release/
+          (cd release && zip -r ../intent_model-${{ steps.get_version.outputs.VERSION }}.zip .)
 
+      # Upload the zip as a GitHub Actions artifact (available in run page)
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: intent-model-${{ steps.get_version.outputs.VERSION }}
+          path: intent_model-${{ steps.get_version.outputs.VERSION }}.zip
+
+      # Create a GitHub Release and attach the same zip
       - name: Create Release and Upload Artifact
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: intent-model-v${{ github.run_number }}
-          name: Intent Model v${{ github.run_number }}
+          tag_name: ${{ steps.get_version.outputs.VERSION }}
+          name: Intent Model ${{ steps.get_version.outputs.VERSION }}
           body: |
-            Automatically trained DistilBERT intent classifier.
-            - ONNX model
-            - Vocabulary file (vocab.txt)
+            - ONNX intent classifier model
             - Labels mapping (labels.json)
-          files: intent_model.zip
+            - Tokenizer vocabulary (vocab.txt)
+            - Version: ${{ steps.get_version.outputs.VERSION }}
+          files: intent_model-${{ steps.get_version.outputs.VERSION }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
