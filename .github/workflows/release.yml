@@ -1,3 +1,4 @@
+# .github/workflows/train_and_release.yml
 name: Train and Release Intent Model
 
 on:
@@ -42,10 +43,10 @@ jobs:
           pip install transformers datasets scikit-learn pandas "optimum[onnxruntime]"
 
       - name: Generate training data
-        run: python generate_training_data.py
+        run: python src/generate_training_data.py
 
       - name: Train model and export ONNX
-        run: python train_intent_classifier.py
+        run: python src/train_intent_classifier.py
 
       - name: Create labels.json from model config
         run: |
@@ -81,7 +82,7 @@ jobs:
           sha256sum ${{ env.ZIP_NAME }} > ${{ env.ZIP_NAME }}.sha256
           cat ${{ env.ZIP_NAME }}.sha256
 
-      # Upload the zip and checksum as workflow artifacts (for immediate preview)
+      # Upload the zip and checksum as workflow artifacts
       - name: Upload zip artifact
         uses: actions/upload-artifact@v4
         with:
