@@ -1,0 +1,75 @@
+# .github/workflows/train_and_release.yml
+name: Train and Release Intent Model
+
+on:
+  workflow_dispatch:  # manual trigger
+
+jobs:
+  train-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install transformers datasets scikit-learn pandas "optimum[onnxruntime]"
+
+      - name: Generate training data
+        run: python generate_training_data.py
+
+      - name: Train model and export ONNX
+        run: python train_intent_classifier.py
+
+      - name: Create labels.json from model config
+        run: |
+          python -c "
+          import json
+          with open('./intent_model_onnx/config.json') as f:
+              config = json.load(f)
+          id2label = config['id2label']
+          # Convert keys to int (they might be strings)
+          labels = [id2label[str(i)] for i in range(len(id2label))]
+          with open('labels.json', 'w') as f:
+              json.dump(labels, f)
+          "
+
+      - name: Copy vocab.txt from trained tokenizer
+        run: cp ./intent_model/vocab.txt .
+
+      - name: Package artifacts
+        run: |
+          mkdir -p release
+          cp ./intent_model_onnx/model.onnx release/
+          cp labels.json release/
+          cp vocab.txt release/
+          (cd release && zip -r ../intent_model.zip .)
+
+      - name: Create Release and Upload Artifact
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: intent-model-v${{ github.run_number }}
+          name: Intent Model v${{ github.run_number }}
+          body: |
+            Automatically trained DistilBERT intent classifier.
+            - ONNX model
+            - Vocabulary file (vocab.txt)
+            - Labels mapping (labels.json)
+          files: intent_model.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
