@@ -40,7 +40,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install torch --index-url https://download.pytorch.org/whl/cpu
-          pip install transformers datasets scikit-learn pandas "optimum[onnxruntime]"
+          pip install transformers datasets scikit-learn pandas "optimum[onnxruntime]" accelerate
 
       - name: Generate training data
         run: python src/generate_training_data.py
