@@ -100,8 +100,9 @@ jobs:
       - name: Encrypt pro ONNX
         run: |
           dotnet run --project tools/Encryptor.csproj -- \
-            pro_model_onnx/model.onnx \
-            pro_model_onnx/model.onnx.enc "${{ secrets.MODEL_SECRET }}"
+            "${{ github.workspace }}/pro_model_onnx/model.onnx" \
+            "${{ github.workspace }}/pro_model_onnx/model.onnx.enc" \
+            "${{ secrets.MODEL_SECRET }}"
 
       - name: Build pro package
         shell: bash
