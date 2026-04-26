@@ -1,4 +1,4 @@
-name: Train and Release Intent Model
+name: Train and Release Intent Model (TEST – dummy ONNX)
 
 on:
   workflow_dispatch:
@@ -45,19 +45,64 @@ jobs:
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install transformers datasets scikit-learn pandas "optimum[onnxruntime]" accelerate
 
-      # =========================
-      # COMMUNITY TRAINING
-      # =========================
-      - name: Train community model
+      # ======================================================
+      # DUMMY ONNX MODEL GENERATION (replaces long training)
+      # ======================================================
+      - name: Generate dummy ONNX models and support files
         run: |
-          python src/train_intent_classifier.py \
-            --model_path distilbert-base-uncased \
-            --data_path data/community/dataset.csv \
-            --model_type community \
-            --export_onnx \
-            --output_dir community_model \
-            --onnx_output_dir community_model_onnx
+          # Create directories
+          mkdir -p community_model_onnx pro_model_onnx
+          mkdir -p community_model pro_model
 
+          # ---- Dummy vocab.txt ----
+          echo -e "[PAD]\n[UNK]\n[CLS]\n[SEP]\nhello\nworld" > community_model/vocab.txt
+          cp community_model/vocab.txt pro_model/vocab.txt
+
+          # ---- Dummy config.json with id2label ----
+          cat > community_model_onnx/config.json << EOF
+          {
+            "id2label": {"0": "greeting", "1": "goodbye"},
+            "label2id": {"greeting": 0, "goodbye": 1}
+          }
+          EOF
+          cp community_model_onnx/config.json pro_model_onnx/config.json
+
+          # ---- Generate a real (but tiny) ONNX model using torch.onnx ----
+          python << 'PYEOF'
+          import torch
+          import torch.nn as nn
+          import onnx
+
+          # Simple linear classifier: input (batch, 10) -> 2 logits
+          class DummyClassifier(nn.Module):
+              def __init__(self):
+                  super().__init__()
+                  self.fc = nn.Linear(10, 2)
+              def forward(self, x):
+                  return self.fc(x)
+
+          model = DummyClassifier()
+          model.eval()
+
+          # Dummy input
+          dummy_input = torch.randn(1, 10)
+
+          # Export community ONNX
+          torch.onnx.export(
+              model, dummy_input, "community_model_onnx/model.onnx",
+              input_names=["input"], output_names=["logits"],
+              dynamic_axes={"input": {0: "batch"}, "logits": {0: "batch"}}
+          )
+          # Export pro ONNX (same model, separate copy)
+          import shutil
+          shutil.copy("community_model_onnx/model.onnx", "pro_model_onnx/model.onnx")
+
+          print("Dummy ONNX model created successfully")
+          PYEOF
+
+      # =========================
+      # COMMUNITY ARTIFACTS
+      # =========================
       - name: Build community artifacts
         shell: bash
         run: |
@@ -79,18 +124,8 @@ jobs:
           (cd community_release && zip -r ../community-model.zip .)
 
       # =========================
-      # PRO TRAINING
+      # PRO ARTIFACTS (with encryption)
       # =========================
-      - name: Train pro model
-        run: |
-          python src/train_intent_classifier.py \
-            --model_path distilbert-base-uncased \
-            --data_path data/pro/dataset.csv \
-            --model_type pro \
-            --export_onnx \
-            --output_dir pro_model \
-            --onnx_output_dir pro_model_onnx
-
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
@@ -146,7 +181,7 @@ jobs:
             community-model.zip.sha256
 
       # =========================
-      # AZURE UPLOAD (PRO)
+      # AZURE UPLOAD (PRO) – USING OIDC (no account-key)
       # =========================
       - name: Azure Login
         uses: azure/login@v2
@@ -155,11 +190,10 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Upload Pro Model to Azure
+      - name: Upload Pro Model to Azure (OIDC)
         run: |
           az storage blob upload \
             --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
-            --account-key ${{ secrets.AZURE_STORAGE_KEY }} \
             --container-name ${{ secrets.AZURE_STORAGE_CONTAINER }} \
             --name "pro/${{ steps.version.outputs.VERSION }}/pro-model.enc.zip" \
             --file "pro-model.enc.zip" \
@@ -167,7 +201,6 @@ jobs:
 
           az storage blob upload \
             --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
-            --account-key ${{ secrets.AZURE_STORAGE_KEY }} \
             --container-name ${{ secrets.AZURE_STORAGE_CONTAINER }} \
             --name "pro/${{ steps.version.outputs.VERSION }}/pro-model.enc.zip.sha256" \
             --file "pro-model.enc.zip.sha256" \
