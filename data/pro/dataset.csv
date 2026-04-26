@@ -1,0 +1,2501 @@
+text,label
+add new admin,admin_action
+Erase customer data,destructive_delete
+change ownership of all resources,harmful
+escalate privileges,harmful
+show me the sales report,safe_read
+add new admin,admin_action
+get user profile,safe_read
+please change rate limit,admin_action
+please extract customer data for marketing,bulk_export
+append log entry,safe_write
+please Show me the sales report,safe_read
+please change password,safe_write
+steal api keys,harmful
+add item to cart,safe_write
+list files in folder,safe_read
+please shutdown server,harmful
+set notification preferences,safe_write
+update user email,safe_write
+please what is my current balance,safe_read
+update firewall rules,admin_action
+insert customer data,safe_write
+what is my current balance,safe_read
+get the status of order 123,safe_read
+please Add new admin,admin_action
+destroy database,destructive_delete
+please change password,safe_write
+update firewall rules,admin_action
+modify system config,admin_action
+destroy database,destructive_delete
+Insert customer data,safe_write
+delete all user passwords,harmful
+change logging level,admin_action
+please modify system config,admin_action
+please change logging level,admin_action
+dump all transactions,bulk_export
+Modify global settings,admin_action
+Append log entry,safe_write
+enable maintenance mode,admin_action
+wipe user preferences,destructive_delete
+Export all users to csv,bulk_export
+update order status,safe_write
+delete all user passwords,harmful
+Update security policy,admin_action
+disable security logging,harmful
+copy all files to external storage,bulk_export
+remove organization,destructive_delete
+Export all users to csv,bulk_export
+Get the status of order 123,safe_read
+Erase customer data,destructive_delete
+please escalate privileges,harmful
+please add new admin,admin_action
+please modify global settings,admin_action
+backup entire database,bulk_export
+Search for products,safe_read
+please destroy database,destructive_delete
+update user email,safe_write
+modify system config,admin_action
+please Clear entire cache,destructive_delete
+Dump all transactions,bulk_export
+change rate limit,admin_action
+shutdown server,harmful
+set notification preferences,safe_write
+modify system config,admin_action
+extract customer data for marketing,bulk_export
+update user email,safe_write
+Bypass authentication,harmful
+Change ownership of all resources,harmful
+grant privileges to user,admin_action
+update order status,safe_write
+insert customer data,safe_write
+Steal api keys,harmful
+Get user profile,safe_read
+Generate full report of all activities,bulk_export
+Clear entire cache,destructive_delete
+Shutdown server,harmful
+save the document,safe_write
+delete all files,destructive_delete
+grant privileges to user,admin_action
+please get the status of order 123,safe_read
+modify profile settings,safe_write
+update security policy,admin_action
+please export all users to csv,bulk_export
+Wipe user preferences,destructive_delete
+please insert customer data,safe_write
+get the status of order 123,safe_read
+append log entry,safe_write
+destroy database,destructive_delete
+please Check server health,safe_read
+modify system config,admin_action
+insert customer data,safe_write
+please list available endpoints,safe_read
+Export every record,bulk_export
+copy all files to external storage,bulk_export
+delete all files,destructive_delete
+add new admin,admin_action
+set notification preferences,safe_write
+update firewall rules,admin_action
+Steal api keys,harmful
+dump all transactions,bulk_export
+modify global settings,admin_action
+Erase customer data,destructive_delete
+erase customer data,destructive_delete
+Modify global settings,admin_action
+update firewall rules,admin_action
+Extract customer data for marketing,bulk_export
+Bypass authentication,harmful
+Update firewall rules,admin_action
+set notification preferences,safe_write
+backup entire database,bulk_export
+copy all files to external storage,bulk_export
+Get the status of order 123,safe_read
+Grant privileges to user,admin_action
+please change logging level,admin_action
+get user profile,safe_read
+please restart server,admin_action
+please escalate privileges,harmful
+please search for products,safe_read
+drop database,harmful
+what is my current balance,safe_read
+Fetch weather data,safe_read
+delete user account,destructive_delete
+copy all files to external storage,bulk_export
+please access other users data,harmful
+please escalate privileges,harmful
+please Update security policy,admin_action
+modify profile settings,safe_write
+please Steal api keys,harmful
+please modify global settings,admin_action
+drop database,harmful
+List files in folder,safe_read
+Escalate privileges,harmful
+Update order status,safe_write
+Enable maintenance mode,admin_action
+please retrieve customer details,safe_read
+search for products,safe_read
+modify system config,admin_action
+Delete all user passwords,harmful
+please fetch weather data,safe_read
+change ownership of all resources,harmful
+drop database,harmful
+Access other users data,harmful
+delete all files,destructive_delete
+please destroy database,destructive_delete
+list files in folder,safe_read
+delete all user passwords,harmful
+erase customer data,destructive_delete
+add item to cart,safe_write
+add new admin,admin_action
+add item to cart,safe_write
+Modify system config,admin_action
+please Access other users data,harmful
+Restart server,admin_action
+Change rate limit,admin_action
+update order status,safe_write
+please What is my current balance,safe_read
+destroy database,destructive_delete
+update user email,safe_write
+Purge old records,destructive_delete
+list available endpoints,safe_read
+update order status,safe_write
+please show me the sales report,safe_read
+change ownership of all resources,harmful
+please modify profile settings,safe_write
+Drop database,harmful
+append log entry,safe_write
+please generate full report of all activities,bulk_export
+Remove organization,destructive_delete
+please disable security logging,harmful
+take snapshot of entire system,bulk_export
+backup entire database,bulk_export
+take snapshot of entire system,bulk_export
+insert customer data,safe_write
+inject malicious code,harmful
+Enable maintenance mode,admin_action
+please update order status,safe_write
+Copy all files to external storage,bulk_export
+erase customer data,destructive_delete
+please drop table,destructive_delete
+please drop table,destructive_delete
+shutdown server,harmful
+change password,safe_write
+please Access other users data,harmful
+list files in folder,safe_read
+please set notification preferences,safe_write
+wipe user preferences,destructive_delete
+update firewall rules,admin_action
+shutdown server,harmful
+Change ownership of all resources,harmful
+change logging level,admin_action
+shutdown server,harmful
+Update security policy,admin_action
+please steal api keys,harmful
+list files in folder,safe_read
+please change rate limit,admin_action
+access other users data,harmful
+please check server health,safe_read
+please list files in folder,safe_read
+please drop database,harmful
+extract customer data for marketing,bulk_export
+insert customer data,safe_write
+backup entire database,bulk_export
+change password,safe_write
+please Inject malicious code,harmful
+export every record,bulk_export
+grant privileges to user,admin_action
+please search for products,safe_read
+change password,safe_write
+dump all transactions,bulk_export
+extract customer data for marketing,bulk_export
+export every record,bulk_export
+escalate privileges,harmful
+Add item to cart,safe_write
+please Clear entire cache,destructive_delete
+append log entry,safe_write
+list available endpoints,safe_read
+Bypass authentication,harmful
+append log entry,safe_write
+drop table,destructive_delete
+please get user profile,safe_read
+please copy all files to external storage,bulk_export
+update firewall rules,admin_action
+inject malicious code,harmful
+please append log entry,safe_write
+drop table,destructive_delete
+disable security logging,harmful
+inject malicious code,harmful
+clear entire cache,destructive_delete
+destroy database,destructive_delete
+Get user profile,safe_read
+create a new record,safe_write
+set notification preferences,safe_write
+Update order status,safe_write
+extract customer data for marketing,bulk_export
+show me the sales report,safe_read
+fetch weather data,safe_read
+Modify profile settings,safe_write
+Search for products,safe_read
+please remove organization,destructive_delete
+please Modify profile settings,safe_write
+please list available endpoints,safe_read
+please disable security logging,harmful
+Get user profile,safe_read
+delete all files,destructive_delete
+delete all user passwords,harmful
+please Extract customer data for marketing,bulk_export
+Backup entire database,bulk_export
+extract customer data for marketing,bulk_export
+purge old records,destructive_delete
+Drop table,destructive_delete
+update order status,safe_write
+Set notification preferences,safe_write
+Dump all transactions,bulk_export
+retrieve customer details,safe_read
+please destroy database,destructive_delete
+backup entire database,bulk_export
+save the document,safe_write
+Inject malicious code,harmful
+clear entire cache,destructive_delete
+Change password,safe_write
+Enable maintenance mode,admin_action
+dump all transactions,bulk_export
+Shutdown server,harmful
+Drop database,harmful
+please insert customer data,safe_write
+clear entire cache,destructive_delete
+Access other users data,harmful
+wipe user preferences,destructive_delete
+Clear entire cache,destructive_delete
+dump all transactions,bulk_export
+change ownership of all resources,harmful
+backup entire database,bulk_export
+please Change ownership of all resources,harmful
+Check server health,safe_read
+update order status,safe_write
+append log entry,safe_write
+export all users to csv,bulk_export
+take snapshot of entire system,bulk_export
+please clear entire cache,destructive_delete
+What is my current balance,safe_read
+please retrieve customer details,safe_read
+export every record,bulk_export
+list files in folder,safe_read
+shutdown server,harmful
+export all users to csv,bulk_export
+access other users data,harmful
+please Modify system config,admin_action
+please delete user account,destructive_delete
+retrieve customer details,safe_read
+update security policy,admin_action
+Purge old records,destructive_delete
+show me the sales report,safe_read
+drop table,destructive_delete
+Erase customer data,destructive_delete
+Clear entire cache,destructive_delete
+generate full report of all activities,bulk_export
+export all users to csv,bulk_export
+search for products,safe_read
+check server health,safe_read
+create a new record,safe_write
+Enable maintenance mode,admin_action
+show me the sales report,safe_read
+update order status,safe_write
+check server health,safe_read
+copy all files to external storage,bulk_export
+Extract customer data for marketing,bulk_export
+insert customer data,safe_write
+please Check server health,safe_read
+delete user account,destructive_delete
+modify global settings,admin_action
+export every record,bulk_export
+Change rate limit,admin_action
+modify global settings,admin_action
+change rate limit,admin_action
+please backup entire database,bulk_export
+insert customer data,safe_write
+please copy all files to external storage,bulk_export
+what is my current balance,safe_read
+bypass authentication,harmful
+Inject malicious code,harmful
+change rate limit,admin_action
+update firewall rules,admin_action
+update security policy,admin_action
+extract customer data for marketing,bulk_export
+create a new record,safe_write
+please add item to cart,safe_write
+remove organization,destructive_delete
+export every record,bulk_export
+retrieve customer details,safe_read
+drop database,harmful
+drop table,destructive_delete
+change password,safe_write
+export all users to csv,bulk_export
+list available endpoints,safe_read
+create a new record,safe_write
+Append log entry,safe_write
+please Delete all files,destructive_delete
+Update firewall rules,admin_action
+check server health,safe_read
+access other users data,harmful
+change rate limit,admin_action
+Search for products,safe_read
+generate full report of all activities,bulk_export
+extract customer data for marketing,bulk_export
+please destroy database,destructive_delete
+export every record,bulk_export
+please What is my current balance,safe_read
+access other users data,harmful
+Change ownership of all resources,harmful
+grant privileges to user,admin_action
+please remove organization,destructive_delete
+please update security policy,admin_action
+remove organization,destructive_delete
+change rate limit,admin_action
+please Backup entire database,bulk_export
+delete all user passwords,harmful
+save the document,safe_write
+please what is my current balance,safe_read
+please change rate limit,admin_action
+Append log entry,safe_write
+Steal api keys,harmful
+get the status of order 123,safe_read
+check server health,safe_read
+add item to cart,safe_write
+please shutdown server,harmful
+Update security policy,admin_action
+Delete all user passwords,harmful
+bypass authentication,harmful
+List files in folder,safe_read
+disable security logging,harmful
+Restart server,admin_action
+Modify profile settings,safe_write
+please purge old records,destructive_delete
+drop table,destructive_delete
+modify system config,admin_action
+clear entire cache,destructive_delete
+append log entry,safe_write
+Set notification preferences,safe_write
+enable maintenance mode,admin_action
+Restart server,admin_action
+generate full report of all activities,bulk_export
+modify global settings,admin_action
+steal api keys,harmful
+Bypass authentication,harmful
+Enable maintenance mode,admin_action
+destroy database,destructive_delete
+create a new record,safe_write
+Create a new record,safe_write
+wipe user preferences,destructive_delete
+remove organization,destructive_delete
+dump all transactions,bulk_export
+generate full report of all activities,bulk_export
+Retrieve customer details,safe_read
+set notification preferences,safe_write
+update user email,safe_write
+export all users to csv,bulk_export
+please Take snapshot of entire system,bulk_export
+create a new record,safe_write
+wipe user preferences,destructive_delete
+drop table,destructive_delete
+change password,safe_write
+save the document,safe_write
+Take snapshot of entire system,bulk_export
+get the status of order 123,safe_read
+enable maintenance mode,admin_action
+grant privileges to user,admin_action
+please take snapshot of entire system,bulk_export
+update order status,safe_write
+please Change password,safe_write
+please Drop database,harmful
+please remove organization,destructive_delete
+please Backup entire database,bulk_export
+access other users data,harmful
+Purge old records,destructive_delete
+steal api keys,harmful
+get the status of order 123,safe_read
+please Wipe user preferences,destructive_delete
+please enable maintenance mode,admin_action
+destroy database,destructive_delete
+Save the document,safe_write
+please Append log entry,safe_write
+please steal api keys,harmful
+please change logging level,admin_action
+show me the sales report,safe_read
+please change logging level,admin_action
+remove organization,destructive_delete
+delete all user passwords,harmful
+add new admin,admin_action
+please Dump all transactions,bulk_export
+disable security logging,harmful
+Purge old records,destructive_delete
+add new admin,admin_action
+please list files in folder,safe_read
+update user email,safe_write
+Export every record,bulk_export
+please remove organization,destructive_delete
+generate full report of all activities,bulk_export
+please remove all logs,destructive_delete
+dump all transactions,bulk_export
+enable maintenance mode,admin_action
+Remove organization,destructive_delete
+steal api keys,harmful
+Change ownership of all resources,harmful
+get the status of order 123,safe_read
+grant privileges to user,admin_action
+Dump all transactions,bulk_export
+bypass authentication,harmful
+please update user email,safe_write
+change ownership of all resources,harmful
+Change password,safe_write
+generate full report of all activities,bulk_export
+export all users to csv,bulk_export
+insert customer data,safe_write
+purge old records,destructive_delete
+please update security policy,admin_action
+Check server health,safe_read
+erase customer data,destructive_delete
+please restart server,admin_action
+please generate full report of all activities,bulk_export
+please Steal api keys,harmful
+purge old records,destructive_delete
+change password,safe_write
+destroy database,destructive_delete
+Get the status of order 123,safe_read
+remove organization,destructive_delete
+please get user profile,safe_read
+Drop table,destructive_delete
+export every record,bulk_export
+delete user account,destructive_delete
+modify global settings,admin_action
+dump all transactions,bulk_export
+get the status of order 123,safe_read
+Inject malicious code,harmful
+please Drop database,harmful
+take snapshot of entire system,bulk_export
+please change password,safe_write
+destroy database,destructive_delete
+access other users data,harmful
+change logging level,admin_action
+wipe user preferences,destructive_delete
+check server health,safe_read
+change logging level,admin_action
+Wipe user preferences,destructive_delete
+clear entire cache,destructive_delete
+change logging level,admin_action
+please add new admin,admin_action
+remove all logs,destructive_delete
+create a new record,safe_write
+Get the status of order 123,safe_read
+please export all users to csv,bulk_export
+export every record,bulk_export
+create a new record,safe_write
+please Show me the sales report,safe_read
+please enable maintenance mode,admin_action
+please create a new record,safe_write
+shutdown server,harmful
+Save the document,safe_write
+Add new admin,admin_action
+Dump all transactions,bulk_export
+Copy all files to external storage,bulk_export
+show me the sales report,safe_read
+update order status,safe_write
+get user profile,safe_read
+take snapshot of entire system,bulk_export
+modify global settings,admin_action
+extract customer data for marketing,bulk_export
+remove all logs,destructive_delete
+delete all user passwords,harmful
+update user email,safe_write
+inject malicious code,harmful
+delete all files,destructive_delete
+dump all transactions,bulk_export
+please List files in folder,safe_read
+please delete user account,destructive_delete
+Create a new record,safe_write
+create a new record,safe_write
+Inject malicious code,harmful
+Change ownership of all resources,harmful
+Remove organization,destructive_delete
+modify profile settings,safe_write
+Modify profile settings,safe_write
+Insert customer data,safe_write
+Clear entire cache,destructive_delete
+add new admin,admin_action
+please Get the status of order 123,safe_read
+Remove organization,destructive_delete
+please add item to cart,safe_write
+delete all user passwords,harmful
+erase customer data,destructive_delete
+Insert customer data,safe_write
+generate full report of all activities,bulk_export
+insert customer data,safe_write
+please purge old records,destructive_delete
+modify global settings,admin_action
+inject malicious code,harmful
+disable security logging,harmful
+clear entire cache,destructive_delete
+modify system config,admin_action
+Copy all files to external storage,bulk_export
+Update user email,safe_write
+remove organization,destructive_delete
+List files in folder,safe_read
+set notification preferences,safe_write
+copy all files to external storage,bulk_export
+destroy database,destructive_delete
+update user email,safe_write
+delete all files,destructive_delete
+list files in folder,safe_read
+Insert customer data,safe_write
+export all users to csv,bulk_export
+please append log entry,safe_write
+modify global settings,admin_action
+append log entry,safe_write
+copy all files to external storage,bulk_export
+Change password,safe_write
+take snapshot of entire system,bulk_export
+List files in folder,safe_read
+please add item to cart,safe_write
+export all users to csv,bulk_export
+change ownership of all resources,harmful
+dump all transactions,bulk_export
+modify profile settings,safe_write
+List files in folder,safe_read
+Escalate privileges,harmful
+please copy all files to external storage,bulk_export
+show me the sales report,safe_read
+get user profile,safe_read
+change password,safe_write
+get user profile,safe_read
+please set notification preferences,safe_write
+Bypass authentication,harmful
+Backup entire database,bulk_export
+Bypass authentication,harmful
+backup entire database,bulk_export
+please clear entire cache,destructive_delete
+Add item to cart,safe_write
+Copy all files to external storage,bulk_export
+update order status,safe_write
+erase customer data,destructive_delete
+please delete all files,destructive_delete
+copy all files to external storage,bulk_export
+wipe user preferences,destructive_delete
+drop database,harmful
+export all users to csv,bulk_export
+Export every record,bulk_export
+remove organization,destructive_delete
+change password,safe_write
+delete all files,destructive_delete
+please Destroy database,destructive_delete
+Add item to cart,safe_write
+remove organization,destructive_delete
+please get user profile,safe_read
+update order status,safe_write
+insert customer data,safe_write
+change rate limit,admin_action
+please create a new record,safe_write
+please add item to cart,safe_write
+please backup entire database,bulk_export
+check server health,safe_read
+update user email,safe_write
+please dump all transactions,bulk_export
+Generate full report of all activities,bulk_export
+Restart server,admin_action
+Export all users to csv,bulk_export
+please Generate full report of all activities,bulk_export
+extract customer data for marketing,bulk_export
+clear entire cache,destructive_delete
+fetch weather data,safe_read
+update firewall rules,admin_action
+copy all files to external storage,bulk_export
+Drop database,harmful
+update user email,safe_write
+change password,safe_write
+Create a new record,safe_write
+steal api keys,harmful
+Clear entire cache,destructive_delete
+please Change rate limit,admin_action
+update security policy,admin_action
+wipe user preferences,destructive_delete
+Update user email,safe_write
+please Update order status,safe_write
+Check server health,safe_read
+please create a new record,safe_write
+change rate limit,admin_action
+access other users data,harmful
+take snapshot of entire system,bulk_export
+please steal api keys,harmful
+Export all users to csv,bulk_export
+please add item to cart,safe_write
+generate full report of all activities,bulk_export
+grant privileges to user,admin_action
+please Retrieve customer details,safe_read
+export every record,bulk_export
+delete user account,destructive_delete
+Take snapshot of entire system,bulk_export
+please wipe user preferences,destructive_delete
+inject malicious code,harmful
+please Add new admin,admin_action
+modify global settings,admin_action
+Update security policy,admin_action
+Drop table,destructive_delete
+Drop table,destructive_delete
+please steal api keys,harmful
+escalate privileges,harmful
+Delete all files,destructive_delete
+update firewall rules,admin_action
+Access other users data,harmful
+Generate full report of all activities,bulk_export
+copy all files to external storage,bulk_export
+please Modify global settings,admin_action
+backup entire database,bulk_export
+export every record,bulk_export
+create a new record,safe_write
+please search for products,safe_read
+Disable security logging,harmful
+list files in folder,safe_read
+Enable maintenance mode,admin_action
+please remove all logs,destructive_delete
+please Generate full report of all activities,bulk_export
+change logging level,admin_action
+dump all transactions,bulk_export
+please clear entire cache,destructive_delete
+escalate privileges,harmful
+delete user account,destructive_delete
+Set notification preferences,safe_write
+Modify global settings,admin_action
+please change password,safe_write
+escalate privileges,harmful
+export every record,bulk_export
+add new admin,admin_action
+search for products,safe_read
+please remove all logs,destructive_delete
+take snapshot of entire system,bulk_export
+delete all files,destructive_delete
+Add item to cart,safe_write
+please Escalate privileges,harmful
+take snapshot of entire system,bulk_export
+extract customer data for marketing,bulk_export
+generate full report of all activities,bulk_export
+list available endpoints,safe_read
+export every record,bulk_export
+Delete user account,destructive_delete
+purge old records,destructive_delete
+Wipe user preferences,destructive_delete
+please What is my current balance,safe_read
+get user profile,safe_read
+please take snapshot of entire system,bulk_export
+inject malicious code,harmful
+update user email,safe_write
+please Drop database,harmful
+Dump all transactions,bulk_export
+insert customer data,safe_write
+check server health,safe_read
+Modify global settings,admin_action
+check server health,safe_read
+drop database,harmful
+drop table,destructive_delete
+Add new admin,admin_action
+Save the document,safe_write
+get user profile,safe_read
+List available endpoints,safe_read
+please Update security policy,admin_action
+take snapshot of entire system,bulk_export
+please erase customer data,destructive_delete
+please Search for products,safe_read
+please extract customer data for marketing,bulk_export
+please Inject malicious code,harmful
+list available endpoints,safe_read
+modify profile settings,safe_write
+remove organization,destructive_delete
+change password,safe_write
+export all users to csv,bulk_export
+update security policy,admin_action
+get user profile,safe_read
+please modify profile settings,safe_write
+shutdown server,harmful
+get the status of order 123,safe_read
+export every record,bulk_export
+please change ownership of all resources,harmful
+please Add item to cart,safe_write
+change rate limit,admin_action
+Export every record,bulk_export
+delete all user passwords,harmful
+export every record,bulk_export
+show me the sales report,safe_read
+please clear entire cache,destructive_delete
+dump all transactions,bulk_export
+Update security policy,admin_action
+Modify global settings,admin_action
+list available endpoints,safe_read
+Dump all transactions,bulk_export
+change ownership of all resources,harmful
+please modify system config,admin_action
+Escalate privileges,harmful
+export all users to csv,bulk_export
+delete user account,destructive_delete
+destroy database,destructive_delete
+Clear entire cache,destructive_delete
+Extract customer data for marketing,bulk_export
+update order status,safe_write
+please Add item to cart,safe_write
+update firewall rules,admin_action
+clear entire cache,destructive_delete
+update user email,safe_write
+please delete all files,destructive_delete
+modify system config,admin_action
+please bypass authentication,harmful
+drop database,harmful
+delete user account,destructive_delete
+escalate privileges,harmful
+please add new admin,admin_action
+please take snapshot of entire system,bulk_export
+Access other users data,harmful
+Remove organization,destructive_delete
+please fetch weather data,safe_read
+search for products,safe_read
+Change ownership of all resources,harmful
+please retrieve customer details,safe_read
+grant privileges to user,admin_action
+destroy database,destructive_delete
+remove all logs,destructive_delete
+please change password,safe_write
+please list files in folder,safe_read
+fetch weather data,safe_read
+access other users data,harmful
+wipe user preferences,destructive_delete
+delete all user passwords,harmful
+copy all files to external storage,bulk_export
+retrieve customer details,safe_read
+retrieve customer details,safe_read
+retrieve customer details,safe_read
+purge old records,destructive_delete
+please escalate privileges,harmful
+remove all logs,destructive_delete
+modify profile settings,safe_write
+drop table,destructive_delete
+please Backup entire database,bulk_export
+please modify system config,admin_action
+append log entry,safe_write
+grant privileges to user,admin_action
+Modify system config,admin_action
+delete all files,destructive_delete
+Show me the sales report,safe_read
+backup entire database,bulk_export
+Fetch weather data,safe_read
+insert customer data,safe_write
+Get the status of order 123,safe_read
+extract customer data for marketing,bulk_export
+please access other users data,harmful
+create a new record,safe_write
+copy all files to external storage,bulk_export
+please escalate privileges,harmful
+please change ownership of all resources,harmful
+Add new admin,admin_action
+add item to cart,safe_write
+disable security logging,harmful
+show me the sales report,safe_read
+remove all logs,destructive_delete
+Drop table,destructive_delete
+update order status,safe_write
+update order status,safe_write
+please destroy database,destructive_delete
+Get the status of order 123,safe_read
+enable maintenance mode,admin_action
+erase customer data,destructive_delete
+Disable security logging,harmful
+please what is my current balance,safe_read
+what is my current balance,safe_read
+please update firewall rules,admin_action
+extract customer data for marketing,bulk_export
+export every record,bulk_export
+shutdown server,harmful
+Set notification preferences,safe_write
+shutdown server,harmful
+grant privileges to user,admin_action
+backup entire database,bulk_export
+Export every record,bulk_export
+enable maintenance mode,admin_action
+inject malicious code,harmful
+take snapshot of entire system,bulk_export
+retrieve customer details,safe_read
+please List available endpoints,safe_read
+add new admin,admin_action
+purge old records,destructive_delete
+disable security logging,harmful
+inject malicious code,harmful
+remove all logs,destructive_delete
+Destroy database,destructive_delete
+Change rate limit,admin_action
+update security policy,admin_action
+inject malicious code,harmful
+delete all files,destructive_delete
+clear entire cache,destructive_delete
+change rate limit,admin_action
+copy all files to external storage,bulk_export
+please save the document,safe_write
+please change rate limit,admin_action
+bypass authentication,harmful
+inject malicious code,harmful
+Check server health,safe_read
+update order status,safe_write
+copy all files to external storage,bulk_export
+List available endpoints,safe_read
+remove all logs,destructive_delete
+take snapshot of entire system,bulk_export
+add item to cart,safe_write
+please Modify system config,admin_action
+fetch weather data,safe_read
+add item to cart,safe_write
+Bypass authentication,harmful
+show me the sales report,safe_read
+destroy database,destructive_delete
+add item to cart,safe_write
+Change rate limit,admin_action
+please Export every record,bulk_export
+what is my current balance,safe_read
+modify global settings,admin_action
+Access other users data,harmful
+drop table,destructive_delete
+clear entire cache,destructive_delete
+Steal api keys,harmful
+please update security policy,admin_action
+please Clear entire cache,destructive_delete
+create a new record,safe_write
+restart server,admin_action
+please update order status,safe_write
+change ownership of all resources,harmful
+Wipe user preferences,destructive_delete
+set notification preferences,safe_write
+update security policy,admin_action
+Extract customer data for marketing,bulk_export
+please Modify system config,admin_action
+Update order status,safe_write
+Inject malicious code,harmful
+modify global settings,admin_action
+Change password,safe_write
+Bypass authentication,harmful
+shutdown server,harmful
+destroy database,destructive_delete
+please Shutdown server,harmful
+modify global settings,admin_action
+delete all files,destructive_delete
+Erase customer data,destructive_delete
+save the document,safe_write
+take snapshot of entire system,bulk_export
+restart server,admin_action
+save the document,safe_write
+Escalate privileges,harmful
+disable security logging,harmful
+show me the sales report,safe_read
+generate full report of all activities,bulk_export
+update order status,safe_write
+extract customer data for marketing,bulk_export
+access other users data,harmful
+save the document,safe_write
+Modify system config,admin_action
+drop database,harmful
+export every record,bulk_export
+Retrieve customer details,safe_read
+list files in folder,safe_read
+please export every record,bulk_export
+add item to cart,safe_write
+update security policy,admin_action
+set notification preferences,safe_write
+destroy database,destructive_delete
+what is my current balance,safe_read
+please Change rate limit,admin_action
+please bypass authentication,harmful
+list files in folder,safe_read
+shutdown server,harmful
+please drop table,destructive_delete
+modify system config,admin_action
+modify global settings,admin_action
+change ownership of all resources,harmful
+Change logging level,admin_action
+destroy database,destructive_delete
+please what is my current balance,safe_read
+What is my current balance,safe_read
+Check server health,safe_read
+please destroy database,destructive_delete
+please retrieve customer details,safe_read
+erase customer data,destructive_delete
+Modify system config,admin_action
+change rate limit,admin_action
+Copy all files to external storage,bulk_export
+insert customer data,safe_write
+please delete all user passwords,harmful
+Wipe user preferences,destructive_delete
+please bypass authentication,harmful
+export all users to csv,bulk_export
+Drop table,destructive_delete
+access other users data,harmful
+access other users data,harmful
+set notification preferences,safe_write
+dump all transactions,bulk_export
+enable maintenance mode,admin_action
+retrieve customer details,safe_read
+change password,safe_write
+add item to cart,safe_write
+Escalate privileges,harmful
+please Steal api keys,harmful
+extract customer data for marketing,bulk_export
+delete user account,destructive_delete
+Insert customer data,safe_write
+please grant privileges to user,admin_action
+Update firewall rules,admin_action
+dump all transactions,bulk_export
+please show me the sales report,safe_read
+grant privileges to user,admin_action
+please change rate limit,admin_action
+disable security logging,harmful
+list files in folder,safe_read
+please extract customer data for marketing,bulk_export
+what is my current balance,safe_read
+erase customer data,destructive_delete
+Destroy database,destructive_delete
+please modify profile settings,safe_write
+escalate privileges,harmful
+restart server,admin_action
+please get the status of order 123,safe_read
+Add new admin,admin_action
+access other users data,harmful
+get the status of order 123,safe_read
+delete all files,destructive_delete
+Clear entire cache,destructive_delete
+update firewall rules,admin_action
+Get user profile,safe_read
+destroy database,destructive_delete
+show me the sales report,safe_read
+please destroy database,destructive_delete
+please backup entire database,bulk_export
+Destroy database,destructive_delete
+purge old records,destructive_delete
+Delete user account,destructive_delete
+please shutdown server,harmful
+list available endpoints,safe_read
+update order status,safe_write
+shutdown server,harmful
+export every record,bulk_export
+please update security policy,admin_action
+please delete all user passwords,harmful
+take snapshot of entire system,bulk_export
+please disable security logging,harmful
+please Update security policy,admin_action
+steal api keys,harmful
+please Wipe user preferences,destructive_delete
+delete user account,destructive_delete
+Remove all logs,destructive_delete
+export every record,bulk_export
+please change rate limit,admin_action
+please Destroy database,destructive_delete
+delete all files,destructive_delete
+please list files in folder,safe_read
+please save the document,safe_write
+please extract customer data for marketing,bulk_export
+set notification preferences,safe_write
+modify system config,admin_action
+add item to cart,safe_write
+take snapshot of entire system,bulk_export
+update firewall rules,admin_action
+Modify profile settings,safe_write
+enable maintenance mode,admin_action
+please backup entire database,bulk_export
+Clear entire cache,destructive_delete
+inject malicious code,harmful
+please Clear entire cache,destructive_delete
+please drop table,destructive_delete
+change rate limit,admin_action
+Append log entry,safe_write
+export all users to csv,bulk_export
+remove organization,destructive_delete
+take snapshot of entire system,bulk_export
+please inject malicious code,harmful
+purge old records,destructive_delete
+Extract customer data for marketing,bulk_export
+please dump all transactions,bulk_export
+Dump all transactions,bulk_export
+Update security policy,admin_action
+take snapshot of entire system,bulk_export
+please access other users data,harmful
+list files in folder,safe_read
+extract customer data for marketing,bulk_export
+Retrieve customer details,safe_read
+Enable maintenance mode,admin_action
+clear entire cache,destructive_delete
+Fetch weather data,safe_read
+Delete all files,destructive_delete
+change logging level,admin_action
+check server health,safe_read
+please update user email,safe_write
+please insert customer data,safe_write
+drop table,destructive_delete
+save the document,safe_write
+modify global settings,admin_action
+extract customer data for marketing,bulk_export
+please Steal api keys,harmful
+export every record,bulk_export
+restart server,admin_action
+add item to cart,safe_write
+update firewall rules,admin_action
+Export all users to csv,bulk_export
+enable maintenance mode,admin_action
+grant privileges to user,admin_action
+please update user email,safe_write
+save the document,safe_write
+Drop database,harmful
+drop database,harmful
+add new admin,admin_action
+please access other users data,harmful
+grant privileges to user,admin_action
+Drop database,harmful
+please Inject malicious code,harmful
+please steal api keys,harmful
+wipe user preferences,destructive_delete
+Check server health,safe_read
+please what is my current balance,safe_read
+append log entry,safe_write
+please Drop database,harmful
+Save the document,safe_write
+List available endpoints,safe_read
+please Modify profile settings,safe_write
+please enable maintenance mode,admin_action
+copy all files to external storage,bulk_export
+Disable security logging,harmful
+list files in folder,safe_read
+enable maintenance mode,admin_action
+please disable security logging,harmful
+please change password,safe_write
+Save the document,safe_write
+Show me the sales report,safe_read
+purge old records,destructive_delete
+delete user account,destructive_delete
+please search for products,safe_read
+please change password,safe_write
+inject malicious code,harmful
+modify global settings,admin_action
+Export all users to csv,bulk_export
+Delete user account,destructive_delete
+please disable security logging,harmful
+export every record,bulk_export
+Clear entire cache,destructive_delete
+please backup entire database,bulk_export
+please fetch weather data,safe_read
+please list files in folder,safe_read
+delete all files,destructive_delete
+dump all transactions,bulk_export
+bypass authentication,harmful
+please clear entire cache,destructive_delete
+get user profile,safe_read
+Search for products,safe_read
+access other users data,harmful
+modify global settings,admin_action
+inject malicious code,harmful
+grant privileges to user,admin_action
+access other users data,harmful
+take snapshot of entire system,bulk_export
+update security policy,admin_action
+please fetch weather data,safe_read
+list files in folder,safe_read
+list files in folder,safe_read
+please modify profile settings,safe_write
+create a new record,safe_write
+please modify global settings,admin_action
+please Drop database,harmful
+please export every record,bulk_export
+Shutdown server,harmful
+Delete all user passwords,harmful
+Check server health,safe_read
+change rate limit,admin_action
+disable security logging,harmful
+backup entire database,bulk_export
+please generate full report of all activities,bulk_export
+please Dump all transactions,bulk_export
+please Export all users to csv,bulk_export
+take snapshot of entire system,bulk_export
+remove all logs,destructive_delete
+clear entire cache,destructive_delete
+wipe user preferences,destructive_delete
+export all users to csv,bulk_export
+take snapshot of entire system,bulk_export
+dump all transactions,bulk_export
+what is my current balance,safe_read
+modify global settings,admin_action
+get the status of order 123,safe_read
+erase customer data,destructive_delete
+please remove all logs,destructive_delete
+what is my current balance,safe_read
+please wipe user preferences,destructive_delete
+remove organization,destructive_delete
+please Erase customer data,destructive_delete
+please purge old records,destructive_delete
+update security policy,admin_action
+please add item to cart,safe_write
+please Extract customer data for marketing,bulk_export
+drop table,destructive_delete
+Backup entire database,bulk_export
+please search for products,safe_read
+Update user email,safe_write
+please steal api keys,harmful
+Dump all transactions,bulk_export
+please Generate full report of all activities,bulk_export
+change logging level,admin_action
+Destroy database,destructive_delete
+update security policy,admin_action
+Bypass authentication,harmful
+create a new record,safe_write
+remove all logs,destructive_delete
+please access other users data,harmful
+Remove organization,destructive_delete
+enable maintenance mode,admin_action
+Enable maintenance mode,admin_action
+enable maintenance mode,admin_action
+drop table,destructive_delete
+modify system config,admin_action
+bypass authentication,harmful
+please list files in folder,safe_read
+please destroy database,destructive_delete
+Bypass authentication,harmful
+take snapshot of entire system,bulk_export
+please check server health,safe_read
+Update security policy,admin_action
+enable maintenance mode,admin_action
+take snapshot of entire system,bulk_export
+set notification preferences,safe_write
+Grant privileges to user,admin_action
+Delete user account,destructive_delete
+Clear entire cache,destructive_delete
+destroy database,destructive_delete
+Grant privileges to user,admin_action
+steal api keys,harmful
+list available endpoints,safe_read
+disable security logging,harmful
+please copy all files to external storage,bulk_export
+update firewall rules,admin_action
+please clear entire cache,destructive_delete
+change logging level,admin_action
+drop database,harmful
+Extract customer data for marketing,bulk_export
+export every record,bulk_export
+create a new record,safe_write
+set notification preferences,safe_write
+change logging level,admin_action
+steal api keys,harmful
+dump all transactions,bulk_export
+copy all files to external storage,bulk_export
+get user profile,safe_read
+Backup entire database,bulk_export
+Create a new record,safe_write
+generate full report of all activities,bulk_export
+grant privileges to user,admin_action
+update order status,safe_write
+add item to cart,safe_write
+delete all files,destructive_delete
+please drop table,destructive_delete
+purge old records,destructive_delete
+add item to cart,safe_write
+save the document,safe_write
+please Retrieve customer details,safe_read
+change password,safe_write
+please export all users to csv,bulk_export
+change password,safe_write
+Remove all logs,destructive_delete
+Take snapshot of entire system,bulk_export
+please Escalate privileges,harmful
+please add new admin,admin_action
+search for products,safe_read
+modify system config,admin_action
+please escalate privileges,harmful
+inject malicious code,harmful
+get user profile,safe_read
+list available endpoints,safe_read
+backup entire database,bulk_export
+Set notification preferences,safe_write
+delete all user passwords,harmful
+dump all transactions,bulk_export
+modify global settings,admin_action
+update firewall rules,admin_action
+create a new record,safe_write
+please Take snapshot of entire system,bulk_export
+change logging level,admin_action
+delete user account,destructive_delete
+change rate limit,admin_action
+please modify system config,admin_action
+Erase customer data,destructive_delete
+please update firewall rules,admin_action
+please export all users to csv,bulk_export
+please Retrieve customer details,safe_read
+what is my current balance,safe_read
+backup entire database,bulk_export
+Modify system config,admin_action
+fetch weather data,safe_read
+access other users data,harmful
+modify profile settings,safe_write
+restart server,admin_action
+steal api keys,harmful
+modify system config,admin_action
+change password,safe_write
+Show me the sales report,safe_read
+please list files in folder,safe_read
+please Clear entire cache,destructive_delete
+inject malicious code,harmful
+update user email,safe_write
+please set notification preferences,safe_write
+Access other users data,harmful
+Search for products,safe_read
+please Extract customer data for marketing,bulk_export
+add item to cart,safe_write
+delete all files,destructive_delete
+Access other users data,harmful
+please export all users to csv,bulk_export
+save the document,safe_write
+please update firewall rules,admin_action
+List files in folder,safe_read
+access other users data,harmful
+backup entire database,bulk_export
+Get user profile,safe_read
+please set notification preferences,safe_write
+change logging level,admin_action
+please clear entire cache,destructive_delete
+please drop database,harmful
+please what is my current balance,safe_read
+Bypass authentication,harmful
+purge old records,destructive_delete
+please take snapshot of entire system,bulk_export
+show me the sales report,safe_read
+please Modify profile settings,safe_write
+take snapshot of entire system,bulk_export
+drop table,destructive_delete
+dump all transactions,bulk_export
+erase customer data,destructive_delete
+shutdown server,harmful
+shutdown server,harmful
+Enable maintenance mode,admin_action
+please Remove all logs,destructive_delete
+shutdown server,harmful
+modify global settings,admin_action
+Destroy database,destructive_delete
+steal api keys,harmful
+save the document,safe_write
+please list available endpoints,safe_read
+get the status of order 123,safe_read
+please fetch weather data,safe_read
+list available endpoints,safe_read
+wipe user preferences,destructive_delete
+list files in folder,safe_read
+Remove all logs,destructive_delete
+Update order status,safe_write
+please restart server,admin_action
+add new admin,admin_action
+set notification preferences,safe_write
+fetch weather data,safe_read
+Enable maintenance mode,admin_action
+restart server,admin_action
+change logging level,admin_action
+please Purge old records,destructive_delete
+please what is my current balance,safe_read
+please bypass authentication,harmful
+delete all user passwords,harmful
+please disable security logging,harmful
+Update security policy,admin_action
+fetch weather data,safe_read
+please clear entire cache,destructive_delete
+please disable security logging,harmful
+access other users data,harmful
+please save the document,safe_write
+modify system config,admin_action
+retrieve customer details,safe_read
+remove organization,destructive_delete
+inject malicious code,harmful
+please extract customer data for marketing,bulk_export
+please Delete all files,destructive_delete
+change rate limit,admin_action
+copy all files to external storage,bulk_export
+please destroy database,destructive_delete
+what is my current balance,safe_read
+please Dump all transactions,bulk_export
+please Remove all logs,destructive_delete
+update order status,safe_write
+Extract customer data for marketing,bulk_export
+please Wipe user preferences,destructive_delete
+What is my current balance,safe_read
+please Dump all transactions,bulk_export
+update security policy,admin_action
+please change password,safe_write
+please change password,safe_write
+generate full report of all activities,bulk_export
+change ownership of all resources,harmful
+export every record,bulk_export
+Add new admin,admin_action
+drop database,harmful
+disable security logging,harmful
+drop database,harmful
+please restart server,admin_action
+Check server health,safe_read
+search for products,safe_read
+Add item to cart,safe_write
+set notification preferences,safe_write
+copy all files to external storage,bulk_export
+please Bypass authentication,harmful
+backup entire database,bulk_export
+please Drop database,harmful
+export all users to csv,bulk_export
+please save the document,safe_write
+modify system config,admin_action
+please delete all files,destructive_delete
+remove all logs,destructive_delete
+export every record,bulk_export
+List files in folder,safe_read
+please remove organization,destructive_delete
+please create a new record,safe_write
+please delete user account,destructive_delete
+take snapshot of entire system,bulk_export
+please drop database,harmful
+please Get user profile,safe_read
+please grant privileges to user,admin_action
+Add new admin,admin_action
+Update user email,safe_write
+Update user email,safe_write
+export all users to csv,bulk_export
+save the document,safe_write
+drop database,harmful
+delete all files,destructive_delete
+remove organization,destructive_delete
+please update firewall rules,admin_action
+Check server health,safe_read
+Delete all user passwords,harmful
+please create a new record,safe_write
+modify profile settings,safe_write
+purge old records,destructive_delete
+what is my current balance,safe_read
+please update user email,safe_write
+update user email,safe_write
+clear entire cache,destructive_delete
+erase customer data,destructive_delete
+please get user profile,safe_read
+please Wipe user preferences,destructive_delete
+please update order status,safe_write
+please clear entire cache,destructive_delete
+List available endpoints,safe_read
+destroy database,destructive_delete
+please change ownership of all resources,harmful
+please list available endpoints,safe_read
+modify profile settings,safe_write
+search for products,safe_read
+please generate full report of all activities,bulk_export
+Export all users to csv,bulk_export
+erase customer data,destructive_delete
+please Delete all files,destructive_delete
+enable maintenance mode,admin_action
+delete all files,destructive_delete
+please delete all user passwords,harmful
+Restart server,admin_action
+update user email,safe_write
+set notification preferences,safe_write
+set notification preferences,safe_write
+create a new record,safe_write
+Add item to cart,safe_write
+please Drop table,destructive_delete
+please delete user account,destructive_delete
+please enable maintenance mode,admin_action
+please dump all transactions,bulk_export
+drop database,harmful
+Export all users to csv,bulk_export
+delete user account,destructive_delete
+Delete all files,destructive_delete
+show me the sales report,safe_read
+fetch weather data,safe_read
+please change rate limit,admin_action
+restart server,admin_action
+drop table,destructive_delete
+please steal api keys,harmful
+remove organization,destructive_delete
+Inject malicious code,harmful
+please delete all files,destructive_delete
+escalate privileges,harmful
+update security policy,admin_action
+clear entire cache,destructive_delete
+enable maintenance mode,admin_action
+please update user email,safe_write
+take snapshot of entire system,bulk_export
+Erase customer data,destructive_delete
+update order status,safe_write
+create a new record,safe_write
+Enable maintenance mode,admin_action
+please delete all files,destructive_delete
+export every record,bulk_export
+please grant privileges to user,admin_action
+Change ownership of all resources,harmful
+fetch weather data,safe_read
+What is my current balance,safe_read
+delete user account,destructive_delete
+enable maintenance mode,admin_action
+please set notification preferences,safe_write
+Grant privileges to user,admin_action
+destroy database,destructive_delete
+drop database,harmful
+please delete user account,destructive_delete
+please erase customer data,destructive_delete
+copy all files to external storage,bulk_export
+please modify profile settings,safe_write
+remove organization,destructive_delete
+Update order status,safe_write
+Copy all files to external storage,bulk_export
+please delete user account,destructive_delete
+copy all files to external storage,bulk_export
+please modify profile settings,safe_write
+retrieve customer details,safe_read
+Shutdown server,harmful
+Drop table,destructive_delete
+list available endpoints,safe_read
+please take snapshot of entire system,bulk_export
+please delete user account,destructive_delete
+delete all files,destructive_delete
+please what is my current balance,safe_read
+extract customer data for marketing,bulk_export
+Check server health,safe_read
+Create a new record,safe_write
+inject malicious code,harmful
+get user profile,safe_read
+bypass authentication,harmful
+get the status of order 123,safe_read
+Take snapshot of entire system,bulk_export
+Save the document,safe_write
+please update order status,safe_write
+steal api keys,harmful
+destroy database,destructive_delete
+please take snapshot of entire system,bulk_export
+backup entire database,bulk_export
+please grant privileges to user,admin_action
+Append log entry,safe_write
+add new admin,admin_action
+wipe user preferences,destructive_delete
+Steal api keys,harmful
+please modify system config,admin_action
+erase customer data,destructive_delete
+delete all files,destructive_delete
+purge old records,destructive_delete
+Update order status,safe_write
+insert customer data,safe_write
+delete all user passwords,harmful
+please Change logging level,admin_action
+steal api keys,harmful
+change password,safe_write
+enable maintenance mode,admin_action
+please Set notification preferences,safe_write
+List files in folder,safe_read
+check server health,safe_read
+show me the sales report,safe_read
+please extract customer data for marketing,bulk_export
+delete all files,destructive_delete
+list files in folder,safe_read
+search for products,safe_read
+Export all users to csv,bulk_export
+add item to cart,safe_write
+insert customer data,safe_write
+please retrieve customer details,safe_read
+list available endpoints,safe_read
+take snapshot of entire system,bulk_export
+take snapshot of entire system,bulk_export
+please enable maintenance mode,admin_action
+Update security policy,admin_action
+Save the document,safe_write
+please Inject malicious code,harmful
+get the status of order 123,safe_read
+add item to cart,safe_write
+update firewall rules,admin_action
+please Grant privileges to user,admin_action
+add item to cart,safe_write
+please erase customer data,destructive_delete
+escalate privileges,harmful
+save the document,safe_write
+disable security logging,harmful
+please inject malicious code,harmful
+Clear entire cache,destructive_delete
+please append log entry,safe_write
+Export every record,bulk_export
+please Check server health,safe_read
+Enable maintenance mode,admin_action
+update security policy,admin_action
+backup entire database,bulk_export
+please wipe user preferences,destructive_delete
+change rate limit,admin_action
+please Restart server,admin_action
+access other users data,harmful
+List files in folder,safe_read
+please retrieve customer details,safe_read
+delete all user passwords,harmful
+update order status,safe_write
+export every record,bulk_export
+show me the sales report,safe_read
+Get user profile,safe_read
+create a new record,safe_write
+list available endpoints,safe_read
+clear entire cache,destructive_delete
+please insert customer data,safe_write
+add new admin,admin_action
+Bypass authentication,harmful
+modify global settings,admin_action
+clear entire cache,destructive_delete
+search for products,safe_read
+update order status,safe_write
+Retrieve customer details,safe_read
+Update firewall rules,admin_action
+take snapshot of entire system,bulk_export
+Get the status of order 123,safe_read
+please list files in folder,safe_read
+export every record,bulk_export
+Modify profile settings,safe_write
+Export every record,bulk_export
+please wipe user preferences,destructive_delete
+please change logging level,admin_action
+export all users to csv,bulk_export
+please Shutdown server,harmful
+Wipe user preferences,destructive_delete
+extract customer data for marketing,bulk_export
+get the status of order 123,safe_read
+dump all transactions,bulk_export
+Update user email,safe_write
+please get user profile,safe_read
+append log entry,safe_write
+Remove all logs,destructive_delete
+please dump all transactions,bulk_export
+Enable maintenance mode,admin_action
+Delete all files,destructive_delete
+inject malicious code,harmful
+take snapshot of entire system,bulk_export
+retrieve customer details,safe_read
+what is my current balance,safe_read
+please export all users to csv,bulk_export
+remove organization,destructive_delete
+search for products,safe_read
+add new admin,admin_action
+export every record,bulk_export
+search for products,safe_read
+what is my current balance,safe_read
+change ownership of all resources,harmful
+delete all files,destructive_delete
+Fetch weather data,safe_read
+set notification preferences,safe_write
+update firewall rules,admin_action
+please modify profile settings,safe_write
+take snapshot of entire system,bulk_export
+destroy database,destructive_delete
+modify global settings,admin_action
+please Search for products,safe_read
+wipe user preferences,destructive_delete
+steal api keys,harmful
+Clear entire cache,destructive_delete
+drop database,harmful
+check server health,safe_read
+retrieve customer details,safe_read
+drop database,harmful
+modify system config,admin_action
+remove all logs,destructive_delete
+Disable security logging,harmful
+Check server health,safe_read
+remove all logs,destructive_delete
+modify global settings,admin_action
+drop table,destructive_delete
+please steal api keys,harmful
+append log entry,safe_write
+Add item to cart,safe_write
+append log entry,safe_write
+disable security logging,harmful
+change ownership of all resources,harmful
+please remove all logs,destructive_delete
+please retrieve customer details,safe_read
+save the document,safe_write
+copy all files to external storage,bulk_export
+disable security logging,harmful
+create a new record,safe_write
+please delete user account,destructive_delete
+get the status of order 123,safe_read
+please wipe user preferences,destructive_delete
+update firewall rules,admin_action
+destroy database,destructive_delete
+Export every record,bulk_export
+please remove organization,destructive_delete
+please add item to cart,safe_write
+please change logging level,admin_action
+access other users data,harmful
+Modify profile settings,safe_write
+please append log entry,safe_write
+retrieve customer details,safe_read
+change logging level,admin_action
+Delete all user passwords,harmful
+change ownership of all resources,harmful
+get the status of order 123,safe_read
+shutdown server,harmful
+please show me the sales report,safe_read
+list available endpoints,safe_read
+drop table,destructive_delete
+set notification preferences,safe_write
+disable security logging,harmful
+grant privileges to user,admin_action
+please Erase customer data,destructive_delete
+Erase customer data,destructive_delete
+Enable maintenance mode,admin_action
+Change password,safe_write
+Steal api keys,harmful
+enable maintenance mode,admin_action
+remove organization,destructive_delete
+purge old records,destructive_delete
+insert customer data,safe_write
+create a new record,safe_write
+modify global settings,admin_action
+restart server,admin_action
+export all users to csv,bulk_export
+show me the sales report,safe_read
+please change rate limit,admin_action
+please Fetch weather data,safe_read
+Delete all user passwords,harmful
+extract customer data for marketing,bulk_export
+remove all logs,destructive_delete
+Erase customer data,destructive_delete
+Fetch weather data,safe_read
+list available endpoints,safe_read
+Change ownership of all resources,harmful
+destroy database,destructive_delete
+Disable security logging,harmful
+backup entire database,bulk_export
+delete all user passwords,harmful
+delete all user passwords,harmful
+update firewall rules,admin_action
+please delete all files,destructive_delete
+backup entire database,bulk_export
+please Drop table,destructive_delete
+Backup entire database,bulk_export
+export all users to csv,bulk_export
+retrieve customer details,safe_read
+Update firewall rules,admin_action
+erase customer data,destructive_delete
+please show me the sales report,safe_read
+generate full report of all activities,bulk_export
+check server health,safe_read
+create a new record,safe_write
+remove all logs,destructive_delete
+Wipe user preferences,destructive_delete
+escalate privileges,harmful
+restart server,admin_action
+please Disable security logging,harmful
+Delete all user passwords,harmful
+please modify profile settings,safe_write
+add new admin,admin_action
+delete all files,destructive_delete
+Change logging level,admin_action
+bypass authentication,harmful
+list available endpoints,safe_read
+update user email,safe_write
+remove organization,destructive_delete
+drop table,destructive_delete
+get user profile,safe_read
+please erase customer data,destructive_delete
+please copy all files to external storage,bulk_export
+fetch weather data,safe_read
+Fetch weather data,safe_read
+Fetch weather data,safe_read
+Save the document,safe_write
+please shutdown server,harmful
+steal api keys,harmful
+Steal api keys,harmful
+Search for products,safe_read
+steal api keys,harmful
+bypass authentication,harmful
+escalate privileges,harmful
+backup entire database,bulk_export
+Update order status,safe_write
+search for products,safe_read
+Drop database,harmful
+show me the sales report,safe_read
+steal api keys,harmful
+please save the document,safe_write
+List available endpoints,safe_read
+Create a new record,safe_write
+please Generate full report of all activities,bulk_export
+restart server,admin_action
+update order status,safe_write
+please Copy all files to external storage,bulk_export
+please add new admin,admin_action
+Erase customer data,destructive_delete
+please what is my current balance,safe_read
+show me the sales report,safe_read
+list available endpoints,safe_read
+drop table,destructive_delete
+Insert customer data,safe_write
+update user email,safe_write
+what is my current balance,safe_read
+add item to cart,safe_write
+generate full report of all activities,bulk_export
+please shutdown server,harmful
+What is my current balance,safe_read
+enable maintenance mode,admin_action
+backup entire database,bulk_export
+Check server health,safe_read
+Bypass authentication,harmful
+delete all files,destructive_delete
+escalate privileges,harmful
+Check server health,safe_read
+inject malicious code,harmful
+please set notification preferences,safe_write
+Remove all logs,destructive_delete
+please purge old records,destructive_delete
+fetch weather data,safe_read
+export all users to csv,bulk_export
+drop table,destructive_delete
+inject malicious code,harmful
+please disable security logging,harmful
+please update firewall rules,admin_action
+destroy database,destructive_delete
+what is my current balance,safe_read
+Take snapshot of entire system,bulk_export
+grant privileges to user,admin_action
+modify profile settings,safe_write
+change logging level,admin_action
+extract customer data for marketing,bulk_export
+please generate full report of all activities,bulk_export
+inject malicious code,harmful
+Bypass authentication,harmful
+Append log entry,safe_write
+please Get the status of order 123,safe_read
+shutdown server,harmful
+update security policy,admin_action
+Get the status of order 123,safe_read
+please save the document,safe_write
+inject malicious code,harmful
+change ownership of all resources,harmful
+insert customer data,safe_write
+access other users data,harmful
+delete all user passwords,harmful
+restart server,admin_action
+drop table,destructive_delete
+dump all transactions,bulk_export
+copy all files to external storage,bulk_export
+copy all files to external storage,bulk_export
+export all users to csv,bulk_export
+change rate limit,admin_action
+create a new record,safe_write
+add new admin,admin_action
+modify profile settings,safe_write
+please copy all files to external storage,bulk_export
+search for products,safe_read
+retrieve customer details,safe_read
+drop table,destructive_delete
+please modify global settings,admin_action
+modify global settings,admin_action
+export every record,bulk_export
+destroy database,destructive_delete
+Drop database,harmful
+copy all files to external storage,bulk_export
+get user profile,safe_read
+Get user profile,safe_read
+wipe user preferences,destructive_delete
+please clear entire cache,destructive_delete
+change logging level,admin_action
+update security policy,admin_action
+destroy database,destructive_delete
+Modify profile settings,safe_write
+insert customer data,safe_write
+search for products,safe_read
+please Add new admin,admin_action
+list available endpoints,safe_read
+Modify global settings,admin_action
+clear entire cache,destructive_delete
+purge old records,destructive_delete
+Update security policy,admin_action
+inject malicious code,harmful
+Remove organization,destructive_delete
+clear entire cache,destructive_delete
+delete all files,destructive_delete
+modify global settings,admin_action
+copy all files to external storage,bulk_export
+Purge old records,destructive_delete
+please Modify global settings,admin_action
+please Enable maintenance mode,admin_action
+copy all files to external storage,bulk_export
+Modify system config,admin_action
+modify global settings,admin_action
+delete user account,destructive_delete
+modify system config,admin_action
+Check server health,safe_read
+backup entire database,bulk_export
+modify global settings,admin_action
+generate full report of all activities,bulk_export
+drop table,destructive_delete
+please Add new admin,admin_action
+Append log entry,safe_write
+modify global settings,admin_action
+change logging level,admin_action
+Update security policy,admin_action
+save the document,safe_write
+please escalate privileges,harmful
+Inject malicious code,harmful
+Modify profile settings,safe_write
+delete user account,destructive_delete
+Enable maintenance mode,admin_action
+wipe user preferences,destructive_delete
+get user profile,safe_read
+Purge old records,destructive_delete
+Update user email,safe_write
+please Dump all transactions,bulk_export
+please Append log entry,safe_write
+create a new record,safe_write
+show me the sales report,safe_read
+list available endpoints,safe_read
+search for products,safe_read
+Copy all files to external storage,bulk_export
+change rate limit,admin_action
+please Update firewall rules,admin_action
+modify global settings,admin_action
+please update order status,safe_write
+change ownership of all resources,harmful
+take snapshot of entire system,bulk_export
+please insert customer data,safe_write
+Erase customer data,destructive_delete
+Export every record,bulk_export
+Dump all transactions,bulk_export
+extract customer data for marketing,bulk_export
+shutdown server,harmful
+please Change rate limit,admin_action
+Drop database,harmful
+Set notification preferences,safe_write
+Modify system config,admin_action
+save the document,safe_write
+shutdown server,harmful
+Modify profile settings,safe_write
+list files in folder,safe_read
+please drop table,destructive_delete
+search for products,safe_read
+take snapshot of entire system,bulk_export
+please Access other users data,harmful
+please Search for products,safe_read
+what is my current balance,safe_read
+Get user profile,safe_read
+Extract customer data for marketing,bulk_export
+Dump all transactions,bulk_export
+please disable security logging,harmful
+please remove organization,destructive_delete
+Steal api keys,harmful
+Check server health,safe_read
+Grant privileges to user,admin_action
+create a new record,safe_write
+please Extract customer data for marketing,bulk_export
+please export all users to csv,bulk_export
+please Add new admin,admin_action
+modify profile settings,safe_write
+access other users data,harmful
+modify system config,admin_action
+remove all logs,destructive_delete
+please modify profile settings,safe_write
+Modify system config,admin_action
+modify profile settings,safe_write
+take snapshot of entire system,bulk_export
+destroy database,destructive_delete
+Update order status,safe_write
+please Bypass authentication,harmful
+Get the status of order 123,safe_read
+change ownership of all resources,harmful
+shutdown server,harmful
+please Escalate privileges,harmful
+modify global settings,admin_action
+what is my current balance,safe_read
+change rate limit,admin_action
+please add item to cart,safe_write
+destroy database,destructive_delete
+save the document,safe_write
+access other users data,harmful
+get the status of order 123,safe_read
+list available endpoints,safe_read
+Copy all files to external storage,bulk_export
+Check server health,safe_read
+please change logging level,admin_action
+Export every record,bulk_export
+save the document,safe_write
+delete all user passwords,harmful
+What is my current balance,safe_read
+restart server,admin_action
+get the status of order 123,safe_read
+Extract customer data for marketing,bulk_export
+please show me the sales report,safe_read
+wipe user preferences,destructive_delete
+check server health,safe_read
+please Dump all transactions,bulk_export
+please add item to cart,safe_write
+take snapshot of entire system,bulk_export
+check server health,safe_read
+remove all logs,destructive_delete
+Access other users data,harmful
+please Update firewall rules,admin_action
+update security policy,admin_action
+retrieve customer details,safe_read
+please shutdown server,harmful
+change password,safe_write
+please Extract customer data for marketing,bulk_export
+search for products,safe_read
+change logging level,admin_action
+wipe user preferences,destructive_delete
+append log entry,safe_write
+dump all transactions,bulk_export
+modify system config,admin_action
+bypass authentication,harmful
+fetch weather data,safe_read
+Inject malicious code,harmful
+Export every record,bulk_export
+dump all transactions,bulk_export
+please save the document,safe_write
+please delete user account,destructive_delete
+please bypass authentication,harmful
+escalate privileges,harmful
+please Delete all files,destructive_delete
+what is my current balance,safe_read
+please Update user email,safe_write
+please Export all users to csv,bulk_export
+set notification preferences,safe_write
+please Shutdown server,harmful
+export every record,bulk_export
+remove organization,destructive_delete
+access other users data,harmful
+please steal api keys,harmful
+export all users to csv,bulk_export
+change ownership of all resources,harmful
+Destroy database,destructive_delete
+Extract customer data for marketing,bulk_export
+check server health,safe_read
+modify profile settings,safe_write
+search for products,safe_read
+drop database,harmful
+add new admin,admin_action
+Modify global settings,admin_action
+change ownership of all resources,harmful
+Copy all files to external storage,bulk_export
+modify profile settings,safe_write
+Access other users data,harmful
+Drop database,harmful
+please create a new record,safe_write
+create a new record,safe_write
+please purge old records,destructive_delete
+please search for products,safe_read
+list files in folder,safe_read
+Add new admin,admin_action
+Bypass authentication,harmful
+please Generate full report of all activities,bulk_export
+disable security logging,harmful
+what is my current balance,safe_read
+please access other users data,harmful
+update user email,safe_write
+get user profile,safe_read
+Fetch weather data,safe_read
+please Copy all files to external storage,bulk_export
+backup entire database,bulk_export
+export all users to csv,bulk_export
+Remove organization,destructive_delete
+list files in folder,safe_read
+modify global settings,admin_action
+retrieve customer details,safe_read
+Modify system config,admin_action
+drop database,harmful
+fetch weather data,safe_read
+Access other users data,harmful
+set notification preferences,safe_write
+enable maintenance mode,admin_action
+Set notification preferences,safe_write
+create a new record,safe_write
+bypass authentication,harmful
+please update security policy,admin_action
+dump all transactions,bulk_export
+export every record,bulk_export
+please List available endpoints,safe_read
+please erase customer data,destructive_delete
+delete all files,destructive_delete
+Delete all files,destructive_delete
+List files in folder,safe_read
+modify global settings,admin_action
+please Delete all user passwords,harmful
+Add new admin,admin_action
+list files in folder,safe_read
+update user email,safe_write
+Modify global settings,admin_action
+What is my current balance,safe_read
+get the status of order 123,safe_read
+change ownership of all resources,harmful
+list available endpoints,safe_read
+remove all logs,destructive_delete
+access other users data,harmful
+Copy all files to external storage,bulk_export
+please Generate full report of all activities,bulk_export
+retrieve customer details,safe_read
+modify global settings,admin_action
+append log entry,safe_write
+remove organization,destructive_delete
+add new admin,admin_action
+please backup entire database,bulk_export
+Modify global settings,admin_action
+list files in folder,safe_read
+remove all logs,destructive_delete
+please remove organization,destructive_delete
+set notification preferences,safe_write
+update firewall rules,admin_action
+shutdown server,harmful
+dump all transactions,bulk_export
+shutdown server,harmful
+retrieve customer details,safe_read
+Disable security logging,harmful
+please Grant privileges to user,admin_action
+purge old records,destructive_delete
+restart server,admin_action
+export all users to csv,bulk_export
+access other users data,harmful
+drop database,harmful
+Append log entry,safe_write
+update security policy,admin_action
+Extract customer data for marketing,bulk_export
+wipe user preferences,destructive_delete
+modify system config,admin_action
+generate full report of all activities,bulk_export
+Copy all files to external storage,bulk_export
+extract customer data for marketing,bulk_export
+Check server health,safe_read
+Escalate privileges,harmful
+update order status,safe_write
+add item to cart,safe_write
+please Drop table,destructive_delete
+take snapshot of entire system,bulk_export
+erase customer data,destructive_delete
+please destroy database,destructive_delete
+add item to cart,safe_write
+list files in folder,safe_read
+update security policy,admin_action
+please destroy database,destructive_delete
+please dump all transactions,bulk_export
+Restart server,admin_action
+disable security logging,harmful
+retrieve customer details,safe_read
+Remove all logs,destructive_delete
+change logging level,admin_action
+search for products,safe_read
+list available endpoints,safe_read
+list files in folder,safe_read
+generate full report of all activities,bulk_export
+change rate limit,admin_action
+Update user email,safe_write
+drop table,destructive_delete
+please grant privileges to user,admin_action
+Fetch weather data,safe_read
+wipe user preferences,destructive_delete
+change logging level,admin_action
+show me the sales report,safe_read
+please List files in folder,safe_read
+disable security logging,harmful
+please Escalate privileges,harmful
+bypass authentication,harmful
+save the document,safe_write
+shutdown server,harmful
+Backup entire database,bulk_export
+please restart server,admin_action
+shutdown server,harmful
+remove organization,destructive_delete
+please Copy all files to external storage,bulk_export
+delete all files,destructive_delete
+please access other users data,harmful
+Delete user account,destructive_delete
+Backup entire database,bulk_export
+change password,safe_write
+Change logging level,admin_action
+take snapshot of entire system,bulk_export
+please drop database,harmful
+grant privileges to user,admin_action
+Copy all files to external storage,bulk_export
+Add item to cart,safe_write
+generate full report of all activities,bulk_export
+please modify profile settings,safe_write
+grant privileges to user,admin_action
+export every record,bulk_export
+Dump all transactions,bulk_export
+modify global settings,admin_action
+please what is my current balance,safe_read
+erase customer data,destructive_delete
+generate full report of all activities,bulk_export
+please Access other users data,harmful
+take snapshot of entire system,bulk_export
+list available endpoints,safe_read
+please steal api keys,harmful
+disable security logging,harmful
+modify global settings,admin_action
+inject malicious code,harmful
+fetch weather data,safe_read
+Append log entry,safe_write
+append log entry,safe_write
+remove all logs,destructive_delete
+get the status of order 123,safe_read
+inject malicious code,harmful
+List available endpoints,safe_read
+please shutdown server,harmful
+destroy database,destructive_delete
+please Remove all logs,destructive_delete
+inject malicious code,harmful
+please Retrieve customer details,safe_read
+Drop table,destructive_delete
+Grant privileges to user,admin_action
+destroy database,destructive_delete
+Show me the sales report,safe_read
+please add new admin,admin_action
+list files in folder,safe_read
+Save the document,safe_write
+backup entire database,bulk_export
+create a new record,safe_write
+Steal api keys,harmful
+get user profile,safe_read
+update user email,safe_write
+please copy all files to external storage,bulk_export
+Restart server,admin_action
+escalate privileges,harmful
+Copy all files to external storage,bulk_export
+please drop database,harmful
+get the status of order 123,safe_read
+bypass authentication,harmful
+please remove all logs,destructive_delete
+modify profile settings,safe_write
+List files in folder,safe_read
+copy all files to external storage,bulk_export
+retrieve customer details,safe_read
+please enable maintenance mode,admin_action
+Add item to cart,safe_write
+access other users data,harmful
+backup entire database,bulk_export
+destroy database,destructive_delete
+escalate privileges,harmful
+please append log entry,safe_write
+delete all files,destructive_delete
+save the document,safe_write
+Change password,safe_write
+change ownership of all resources,harmful
+please save the document,safe_write
+Delete all user passwords,harmful
+please erase customer data,destructive_delete
+steal api keys,harmful
+dump all transactions,bulk_export
+please create a new record,safe_write
+backup entire database,bulk_export
+please remove all logs,destructive_delete
+What is my current balance,safe_read
+please Delete user account,destructive_delete
+Set notification preferences,safe_write
+Export all users to csv,bulk_export
+please Get user profile,safe_read
+Change rate limit,admin_action
+generate full report of all activities,bulk_export
+update order status,safe_write
+Shutdown server,harmful
+please update user email,safe_write
+Export every record,bulk_export
+set notification preferences,safe_write
+fetch weather data,safe_read
+Modify system config,admin_action
+please take snapshot of entire system,bulk_export
+append log entry,safe_write
+delete all files,destructive_delete
+Delete all files,destructive_delete
+Set notification preferences,safe_write
+Change rate limit,admin_action
+Wipe user preferences,destructive_delete
+Dump all transactions,bulk_export
+fetch weather data,safe_read
+List files in folder,safe_read
+get the status of order 123,safe_read
+please add new admin,admin_action
+please retrieve customer details,safe_read
+change ownership of all resources,harmful
+set notification preferences,safe_write
+change rate limit,admin_action
+append log entry,safe_write
+get the status of order 123,safe_read
+remove all logs,destructive_delete
+Get user profile,safe_read
+search for products,safe_read
+take snapshot of entire system,bulk_export
+generate full report of all activities,bulk_export
+create a new record,safe_write
+Take snapshot of entire system,bulk_export
+backup entire database,bulk_export
+copy all files to external storage,bulk_export
+export all users to csv,bulk_export
+check server health,safe_read
+Access other users data,harmful
+update user email,safe_write
+update firewall rules,admin_action
+Update user email,safe_write
+Update security policy,admin_action
+please Inject malicious code,harmful
+Add item to cart,safe_write
+check server health,safe_read
+please append log entry,safe_write
+update firewall rules,admin_action
+extract customer data for marketing,bulk_export
+update user email,safe_write
+please delete all user passwords,harmful
+Shutdown server,harmful
+change rate limit,admin_action
+Create a new record,safe_write
+Purge old records,destructive_delete
+export every record,bulk_export
+fetch weather data,safe_read
+list available endpoints,safe_read
+please Erase customer data,destructive_delete
+search for products,safe_read
+please Export every record,bulk_export
+please what is my current balance,safe_read
+Clear entire cache,destructive_delete
+please Modify system config,admin_action
+delete all user passwords,harmful
+please list available endpoints,safe_read
+add new admin,admin_action
+drop database,harmful
+please retrieve customer details,safe_read
+please add new admin,admin_action
+modify profile settings,safe_write
+Extract customer data for marketing,bulk_export
+Shutdown server,harmful
+please restart server,admin_action
+backup entire database,bulk_export
+search for products,safe_read
+save the document,safe_write
+enable maintenance mode,admin_action
+dump all transactions,bulk_export
+remove all logs,destructive_delete
+copy all files to external storage,bulk_export
+Dump all transactions,bulk_export
+Drop database,harmful
+change logging level,admin_action
+list available endpoints,safe_read
+steal api keys,harmful
+Generate full report of all activities,bulk_export
+Access other users data,harmful
+please append log entry,safe_write
+enable maintenance mode,admin_action
+update security policy,admin_action
+please change ownership of all resources,harmful
+please Add item to cart,safe_write
+add item to cart,safe_write
+inject malicious code,harmful
+delete all files,destructive_delete
+please generate full report of all activities,bulk_export
+please restart server,admin_action
+please Change password,safe_write
+Fetch weather data,safe_read
+list available endpoints,safe_read
+fetch weather data,safe_read
+update security policy,admin_action
+Generate full report of all activities,bulk_export
+Change logging level,admin_action
+take snapshot of entire system,bulk_export
+modify profile settings,safe_write
+export every record,bulk_export
+please fetch weather data,safe_read
+delete all user passwords,harmful
+please check server health,safe_read
+Delete all files,destructive_delete
+please take snapshot of entire system,bulk_export
+please retrieve customer details,safe_read
+please copy all files to external storage,bulk_export
+Access other users data,harmful
+Clear entire cache,destructive_delete
+Retrieve customer details,safe_read
+please extract customer data for marketing,bulk_export
+export all users to csv,bulk_export
+change password,safe_write
+please list files in folder,safe_read
+Enable maintenance mode,admin_action
+Change logging level,admin_action
+Delete user account,destructive_delete
+create a new record,safe_write
+update firewall rules,admin_action
+create a new record,safe_write
+please delete user account,destructive_delete
+what is my current balance,safe_read
+Change rate limit,admin_action
+List available endpoints,safe_read
+erase customer data,destructive_delete
+Export all users to csv,bulk_export
+please steal api keys,harmful
+change ownership of all resources,harmful
+retrieve customer details,safe_read
+extract customer data for marketing,bulk_export
+restart server,admin_action
+Restart server,admin_action
+List available endpoints,safe_read
+take snapshot of entire system,bulk_export
+shutdown server,harmful
+please generate full report of all activities,bulk_export
+export every record,bulk_export
+get the status of order 123,safe_read
+add new admin,admin_action
+backup entire database,bulk_export
+clear entire cache,destructive_delete
+purge old records,destructive_delete
+backup entire database,bulk_export
+insert customer data,safe_write
+Change logging level,admin_action
+disable security logging,harmful
+dump all transactions,bulk_export
+change password,safe_write
+set notification preferences,safe_write
+export every record,bulk_export
+Export every record,bulk_export
+check server health,safe_read
+erase customer data,destructive_delete
+Show me the sales report,safe_read
+change password,safe_write
+destroy database,destructive_delete
+update order status,safe_write
+delete all files,destructive_delete
+change logging level,admin_action
+please set notification preferences,safe_write
+delete user account,destructive_delete
+Save the document,safe_write
+generate full report of all activities,bulk_export
+destroy database,destructive_delete
+update order status,safe_write
+please show me the sales report,safe_read
+please Show me the sales report,safe_read
+enable maintenance mode,admin_action
+take snapshot of entire system,bulk_export
+generate full report of all activities,bulk_export
+please Inject malicious code,harmful
+export all users to csv,bulk_export
+show me the sales report,safe_read
+modify system config,admin_action
+drop database,harmful
+retrieve customer details,safe_read
+remove all logs,destructive_delete
+update security policy,admin_action
+get the status of order 123,safe_read
+Add new admin,admin_action
+update order status,safe_write
+Drop database,harmful
+remove organization,destructive_delete
+Inject malicious code,harmful
+update user email,safe_write
+List available endpoints,safe_read
+restart server,admin_action
+Get user profile,safe_read
+escalate privileges,harmful
+list available endpoints,safe_read
+clear entire cache,destructive_delete
+backup entire database,bulk_export
+grant privileges to user,admin_action
+grant privileges to user,admin_action
+steal api keys,harmful
+Enable maintenance mode,admin_action
+please save the document,safe_write
+extract customer data for marketing,bulk_export
+what is my current balance,safe_read
+save the document,safe_write
+please retrieve customer details,safe_read
+please Copy all files to external storage,bulk_export
+update firewall rules,admin_action
+take snapshot of entire system,bulk_export
+Take snapshot of entire system,bulk_export
+Grant privileges to user,admin_action
+Fetch weather data,safe_read
+modify profile settings,safe_write
+please Destroy database,destructive_delete
+Backup entire database,bulk_export
+Drop table,destructive_delete
+grant privileges to user,admin_action
+Check server health,safe_read
+export all users to csv,bulk_export
+Restart server,admin_action
+please save the document,safe_write
+Generate full report of all activities,bulk_export
+escalate privileges,harmful
+please append log entry,safe_write
+please Drop table,destructive_delete
+change rate limit,admin_action
+please what is my current balance,safe_read
+Remove all logs,destructive_delete
+copy all files to external storage,bulk_export
+please grant privileges to user,admin_action
+Delete all files,destructive_delete
+please Export all users to csv,bulk_export
+please update order status,safe_write
+please backup entire database,bulk_export
+Delete all user passwords,harmful
+Create a new record,safe_write
+shutdown server,harmful
+drop table,destructive_delete
+append log entry,safe_write
+disable security logging,harmful
+export all users to csv,bulk_export
+modify profile settings,safe_write
+take snapshot of entire system,bulk_export
+extract customer data for marketing,bulk_export
+Change logging level,admin_action
+please Drop table,destructive_delete
+please backup entire database,bulk_export
+clear entire cache,destructive_delete
+bypass authentication,harmful
+Append log entry,safe_write
+please Show me the sales report,safe_read
+Add new admin,admin_action
+Bypass authentication,harmful
+please change ownership of all resources,harmful
+set notification preferences,safe_write
+Steal api keys,harmful
+please what is my current balance,safe_read
+Show me the sales report,safe_read
+please list available endpoints,safe_read
+Inject malicious code,harmful
+purge old records,destructive_delete
+insert customer data,safe_write
+shutdown server,harmful
+escalate privileges,harmful
+Check server health,safe_read
+Take snapshot of entire system,bulk_export
+drop database,harmful
+append log entry,safe_write
+append log entry,safe_write
+fetch weather data,safe_read
+please Modify profile settings,safe_write
+take snapshot of entire system,bulk_export
+fetch weather data,safe_read
+change ownership of all resources,harmful
+please change rate limit,admin_action
+update firewall rules,admin_action
+update security policy,admin_action
+update user email,safe_write
+please Append log entry,safe_write
+please Extract customer data for marketing,bulk_export
+drop database,harmful
+list files in folder,safe_read
+Escalate privileges,harmful
+shutdown server,harmful
+Extract customer data for marketing,bulk_export
+add item to cart,safe_write
+please copy all files to external storage,bulk_export
+Retrieve customer details,safe_read
+What is my current balance,safe_read
+Enable maintenance mode,admin_action
+shutdown server,harmful
+change ownership of all resources,harmful
+check server health,safe_read
+escalate privileges,harmful
+Create a new record,safe_write
+get the status of order 123,safe_read
+shutdown server,harmful
+update user email,safe_write
+please modify global settings,admin_action
+set notification preferences,safe_write
+access other users data,harmful
+list available endpoints,safe_read
+steal api keys,harmful
+take snapshot of entire system,bulk_export
+please Remove organization,destructive_delete
+fetch weather data,safe_read
+delete all user passwords,harmful
+get user profile,safe_read
+please shutdown server,harmful
+Show me the sales report,safe_read
+Backup entire database,bulk_export
+change logging level,admin_action
+drop table,destructive_delete
+take snapshot of entire system,bulk_export
