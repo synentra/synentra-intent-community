@@ -145,7 +145,7 @@ jobs:
             --container-name ${{ secrets.AZURE_STORAGE_CONTAINER }} \
             --name "pro/${{ steps.version.outputs.VERSION }}/pro-model.enc.zip" \
             --file "pro-model.enc.zip" \
-            --overwrite true
+            --overwrite true \
             --auth-mode login
 
           az storage blob upload \
@@ -153,5 +153,5 @@ jobs:
             --container-name ${{ secrets.AZURE_STORAGE_CONTAINER }} \
             --name "pro/${{ steps.version.outputs.VERSION }}/pro-model.enc.zip.sha256" \
             --file "pro-model.enc.zip.sha256" \
-            --overwrite true
+            --overwrite true \
             --auth-mode login
