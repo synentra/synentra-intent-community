@@ -1,4 +1,3 @@
-# .github/workflows/train_and_release.yml
 name: Train and Release Intent Model
 
 on:
@@ -12,106 +11,160 @@ on:
 permissions:
   contents: write
 
+env:
+  PYTHON_VERSION: "3.10"
+  DOTNET_VERSION: "10.0.x"
+
 jobs:
   train-and-release:
     runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.version.outputs.VERSION }}
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set version from input
+      - name: Set version
         id: version
         run: echo "VERSION=${{ github.event.inputs.rel_version }}" >> $GITHUB_OUTPUT
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Cache pip packages
-        uses: actions/cache@v4
+      # Cache pip packages – keyed by the workflow file itself
+      - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('.github/workflows/train-release.yml') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install transformers datasets scikit-learn pandas "optimum[onnxruntime]" accelerate
 
-      - name: Generate training data
-        run: python src/generate_training_data.py
-
-      - name: Train model and export ONNX
-        run: python src/train_intent_classifier.py
-
-      - name: Create labels.json from model config
+      # =========================
+      # COMMUNITY TRAINING
+      # =========================
+      - name: Train community model
         run: |
-          python -c "
+          python src/train_intent_classifier.py \
+            --model_path distilbert-base-uncased \
+            --data_path data/community/dataset.csv \
+            --model_type community \
+            --export_onnx \
+            --output_dir community_model \
+            --onnx_output_dir community_model_onnx
+
+      - name: Build community artifacts
+        shell: bash
+        run: |
+          mkdir -p community_release
+
+          cp community_model_onnx/model.onnx community_release/
+          cp community_model/vocab.txt community_release/
+
+          python << 'PYEOF'
           import json
-          with open('./intent_model_onnx/config.json') as f:
+          with open('community_model_onnx/config.json') as f:
               config = json.load(f)
-          id2label = config['id2label']
-          labels = [id2label[str(i)] for i in range(len(id2label))]
-          with open('labels.json', 'w') as f:
-              json.dump(labels, f)
-          "
+          labels = [config['id2label'][str(i)] for i in range(len(config['id2label']))]
+          json.dump(labels, open('community_release/labels.json','w'))
+          PYEOF
 
-      - name: Copy vocab.txt
-        run: cp ./intent_model/vocab.txt .
+          echo "${{ steps.version.outputs.VERSION }}" > community_release/version.txt
 
-      - name: Add version file
-        run: echo "${{ steps.version.outputs.VERSION }}" > version.txt
+          (cd community_release && zip -r ../community-model.zip .)
 
-      - name: Package artifacts
+      # =========================
+      # PRO TRAINING
+      # =========================
+      - name: Train pro model
         run: |
-          mkdir -p release
-          cp ./intent_model_onnx/model.onnx release/
-          cp labels.json release/
-          cp vocab.txt release/
-          cp version.txt release/
-          ZIP_NAME="intent_model-${{ steps.version.outputs.VERSION }}.zip"
-          (cd release && zip -r ../$ZIP_NAME .)
-          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
+          python src/train_intent_classifier.py \
+            --model_path distilbert-base-uncased \
+            --data_path data/pro/dataset.csv \
+            --model_type pro \
+            --export_onnx \
+            --output_dir pro_model \
+            --onnx_output_dir pro_model_onnx
 
-      - name: Generate SHA256 checksum
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Build Encryptor
+        run: dotnet build tools/Encryptor.csproj -c Release
+
+      - name: Encrypt pro ONNX
         run: |
-          sha256sum ${{ env.ZIP_NAME }} > ${{ env.ZIP_NAME }}.sha256
-          cat ${{ env.ZIP_NAME }}.sha256
+          dotnet run --project tools/Encryptor.csproj -- \
+            pro_model_onnx/model.onnx \
+            pro_model_onnx/model.onnx.enc "${{ secrets.MODEL_SECRET }}"
 
-      # Upload the zip and checksum as workflow artifacts
-      - name: Upload zip artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: intent_model-${{ steps.version.outputs.VERSION }}
-          path: ${{ env.ZIP_NAME }}
+      - name: Build pro package
+        shell: bash
+        run: |
+          mkdir -p pro_release
 
-      - name: Upload checksum artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: intent_model-${{ steps.version.outputs.VERSION }}-sha256
-          path: ${{ env.ZIP_NAME }}.sha256
+          cp pro_model_onnx/model.onnx.enc pro_release/
+          cp pro_model/vocab.txt pro_release/
 
-      # Create GitHub Release and attach both files
-      - name: Create Release
+          python << 'PYEOF'
+          import json
+          with open('pro_model_onnx/config.json') as f:
+              config = json.load(f)
+          labels = [config['id2label'][str(i)] for i in range(len(config['id2label']))]
+          json.dump(labels, open('pro_release/labels.json','w'))
+          PYEOF
+
+          echo "${{ steps.version.outputs.VERSION }}" > pro_release/version.txt
+
+          (cd pro_release && zip -r ../pro-model.enc.zip .)
+
+      # =========================
+      # CHECKSUMS
+      # =========================
+      - name: Generate checksums
+        run: |
+          sha256sum community-model.zip > community-model.zip.sha256
+          sha256sum pro-model.enc.zip > pro-model.enc.zip.sha256
+
+      # =========================
+      # GITHUB RELEASE (COMMUNITY)
+      # =========================
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.VERSION }}
           name: Intent Model ${{ steps.version.outputs.VERSION }}
-          body: |
-            - ONNX intent classifier model
-            - Labels mapping (labels.json)
-            - Tokenizer vocabulary (vocab.txt)
-            - Version: ${{ steps.version.outputs.VERSION }}
-            - SHA256 checksum: see attached .sha256 file
           files: |
-            ${{ env.ZIP_NAME }}
-            ${{ env.ZIP_NAME }}.sha256
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            community-model.zip
+            community-model.zip.sha256
+
+      # =========================
+      # AZURE UPLOAD (PRO)
+      # =========================
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Upload Pro Model to Azure
+        run: |
+          az storage blob upload \
+            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
+            --account-key ${{ secrets.AZURE_STORAGE_KEY }} \
+            --container-name ${{ secrets.AZURE_STORAGE_CONTAINER }} \
+            --name "pro/${{ steps.version.outputs.VERSION }}/pro-model.enc.zip" \
+            --file "pro-model.enc.zip" \
+            --overwrite true
+
+          az storage blob upload \
+            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
+            --account-key ${{ secrets.AZURE_STORAGE_KEY }} \
+            --container-name ${{ secrets.AZURE_STORAGE_CONTAINER }} \
+            --name "pro/${{ steps.version.outputs.VERSION }}/pro-model.enc.zip.sha256" \
+            --file "pro-model.enc.zip.sha256" \
+            --overwrite true
