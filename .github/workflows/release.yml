@@ -9,8 +9,8 @@ on:
         type: string
 
 permissions:
-  id-token: write   # Required to request the OIDC JWT token
-  contents: read    # Required to checkout the code
+  id-token: write
+  contents: write
 
 env:
   PYTHON_VERSION: "3.10"
@@ -163,7 +163,8 @@ jobs:
             --container-name ${{ secrets.AZURE_STORAGE_CONTAINER }} \
             --name "pro/${{ steps.version.outputs.VERSION }}/pro-model.enc.zip" \
             --file "pro-model.enc.zip" \
-            --overwrite true
+            --overwrite true \
+            --auth-mode login
 
           az storage blob upload \
             --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
@@ -171,4 +172,5 @@ jobs:
             --container-name ${{ secrets.AZURE_STORAGE_CONTAINER }} \
             --name "pro/${{ steps.version.outputs.VERSION }}/pro-model.enc.zip.sha256" \
             --file "pro-model.enc.zip.sha256" \
-            --overwrite true
+            --overwrite true \
+            --auth-mode login
