@@ -6,7 +6,7 @@ labels: type:bug
 assignees: ''
 ---
 
-## What version of Vectra ML?
+## What version of Synentra Intent Community Edition?
 > e.g., 1.0.x
 
 ## Describe the bug
