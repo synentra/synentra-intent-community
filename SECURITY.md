@@ -1,14 +1,14 @@
-# Vectra ML Security Policy
+# Synentra Intent Community Security Policy
 
-At **Vectra ML**, security is a top priority. We are committed to safeguarding our users, 
+At **Synentra Intent Community**, security is a top priority. We are committed to safeguarding our users, 
 their data, and the systems that rely on our software. Rigorous security practices are 
 integrated throughout our software development and release lifecycle to ensure the highest level of protection.
 
 ## Reporting a Vulnerability
 
-If you identify a potential security issue or vulnerability in Vectra ML, please **report it privately** to our security team:
+If you identify a potential security issue or vulnerability in Synentra Intent Community, please **report it privately** to our security team:
 
-📧 **[contact@vectra.cortexiumlabs.com](mailto:contact@vectra.cortexiumlabs.com)**
+📧 **[contact@synentra.io](mailto:contact@synentra.io)**
 
 > **Important:** Please **do not** create a public issue or pull request, as this may expose the vulnerability before it is resolved.
 
@@ -28,4 +28,4 @@ We handle every report with urgency and transparency:
 4. **Coordinated Disclosure**  
    Once a fix is ready, we will coordinate public disclosure with the reporter and include a detailed changelog in the relevant release notes.
 
-We sincerely appreciate your responsible disclosure and your efforts in helping **keep Vectra ML safe for everyone**.
+We sincerely appreciate your responsible disclosure and your efforts in helping **keep Synentra Intent Community safe for everyone**.
