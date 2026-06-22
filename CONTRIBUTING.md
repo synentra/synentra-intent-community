@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-Thank you for your interest in contributing to **Vectra ML**!  
+Thank you for your interest in contributing to **Synentra Intent - Community Edition**!  
 We’re thrilled to collaborate with developers like you to make this project more powerful, stable, and innovative.
 
 Whether you’re here to:
@@ -22,8 +22,8 @@ All changes to the codebase are made through **Pull Requests (PRs)** — followi
 
 1. **Fork** the repository and create a new branch from `main`.  
    Use a descriptive branch name, e.g.:
-   - `feature/vectra-ml-training-data`
-   - `fix/vectra-ml-classifier-bug`
+   - `feature/synentra-ml-training-data`
+   - `fix/synentra-ml-classifier-bug`
 2. **Implement your changes** — write clean, maintainable, and well-documented code.
 3. **Write tests** for any new or modified functionality.
 4. **Update documentation** if your changes affect public APIs or usage.
@@ -34,12 +34,12 @@ All changes to the codebase are made through **Pull Requests (PRs)** — followi
    - References to related issues or discussions.
    - Screenshots, logs, or examples where relevant.
 
-💡 *We actively review all pull requests and provide constructive feedback. Your ideas and improvements help shape Vectra ML for everyone.*
+💡 *We actively review all pull requests and provide constructive feedback. Your ideas and improvements help shape ynentra Intent for everyone.*
 
 ## Reporting Bugs & Issues
 
-We use [GitHub Issues](https://github.com/cortexium-labs/vectra-ml/issues) to track bugs, enhancements, and discussions.
-To report a bug, [open a new issue](https://github.com/cortexium-labs/vectra-ml/issues/new) and include as much detail as possible:
+We use [GitHub Issues](https://github.com/synentra/synentra-intent-community/issues) to track bugs, enhancements, and discussions.
+To report a bug, [open a new issue](https://github.com/synentra/synentra-intent-community/issues/new) and include as much detail as possible:
 
 - **Summary** – A short description of the issue.  
 - **Steps to Reproduce** – Include exact steps or a minimal reproducible example (preferably in C#).  
@@ -56,11 +56,11 @@ Be respectful, constructive, and considerate in all interactions — collaborati
 
 ## License
 
-By contributing to **Vectra ML**, you agree that your contributions will be licensed under the terms of the [Apache-2.0](https://opensource.org/license/Apache-2.0), which governs this project.
+By contributing to **Synentra Intent Community Edition**, you agree that your contributions will be licensed under the terms of the [Apache-2.0](https://opensource.org/license/Apache-2.0), which governs this project.
 
 If you have any questions about licensing or contributions, please reach out to the maintainers.
 
 ## ❤️ Thank You
 
-Your time and expertise make **Vectra ML** better every day.  
+Your time and expertise make **Synentra Intent Community Edition** better every day.  
 Together, we can build a flexible, open, and powerful automation platform for everyone.
