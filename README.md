@@ -1,9 +1,9 @@
 <div align="center">
-  <img src="/img/banner.png" alt="Vectra Intent Classification Model Banner" />
-  <h2>Vectra Intent Classification Model (VICM)</h2>
+  <img src="/img/banner.png" alt="Synentra Intent Classification Model - Community edition" />
+  <h2>Synentra Intent Classification Model - Community edition</h2>
 </div>
 
-This repository contains code and resources for training, evaluating, and deploying an intent classification model. The system is designed to classify user intents from natural language input, enabling downstream policy enforcement and decision-making in the Vectra ecosystem.
+This repository contains code and resources for training, evaluating, and deploying an intent classification model. The system is designed to classify user intents from natural language input, enabling downstream policy enforcement and decision-making in the Synentra ecosystem.
 
 ## Overview
 
