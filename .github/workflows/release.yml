@@ -52,7 +52,7 @@ jobs:
         run: |
           python src/train_intent_classifier.py \
             --model_path distilbert-base-uncased \
-            --data_path data/community/dataset.csv \
+            --data_path data/dataset.csv \
             --model_type community \
             --export_onnx \
             --output_dir community_model \
@@ -76,62 +76,14 @@ jobs:
 
           echo "${{ steps.version.outputs.VERSION }}" > community_release/version.txt
 
-          (cd community_release && zip -r ../community-model.zip .)
-
-      # =========================
-      # PRO TRAINING
-      # =========================
-      - name: Train pro model
-        run: |
-          python src/train_intent_classifier.py \
-            --model_path distilbert-base-uncased \
-            --data_path data/pro/dataset.csv \
-            --model_type pro \
-            --export_onnx \
-            --output_dir pro_model \
-            --onnx_output_dir pro_model_onnx
-
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: Build Encryptor
-        run: dotnet build tools/Encryptor.csproj -c Release
-
-      - name: Encrypt pro ONNX
-        run: |
-          dotnet run --project tools/Encryptor.csproj -- \
-            "${{ github.workspace }}/pro_model_onnx/model.onnx" \
-            "${{ github.workspace }}/pro_model_onnx/model.onnx.enc" \
-            "${{ secrets.MODEL_SECRET }}"
-
-      - name: Build pro package
-        shell: bash
-        run: |
-          mkdir -p pro_release
-
-          cp pro_model_onnx/model.onnx.enc pro_release/
-          cp pro_model/vocab.txt pro_release/
-
-          python << 'PYEOF'
-          import json
-          with open('pro_model_onnx/config.json') as f:
-              config = json.load(f)
-          labels = [config['id2label'][str(i)] for i in range(len(config['id2label']))]
-          json.dump(labels, open('pro_release/labels.json','w'))
-          PYEOF
-
-          echo "${{ steps.version.outputs.VERSION }}" > pro_release/version.txt
-
-          (cd pro_release && zip -r ../pro-model.enc.zip .)
+          (cd community_release && zip -r ../intent-model-community.zip .)
 
       # =========================
       # CHECKSUMS
       # =========================
       - name: Generate checksums
         run: |
-          sha256sum community-model.zip > community-model.zip.sha256
-          sha256sum pro-model.enc.zip > pro-model.enc.zip.sha256
+          sha256sum intent-model-community.zip > intent-model-community.zip.sha256
 
       # =========================
       # GITHUB RELEASE (COMMUNITY)
@@ -140,37 +92,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.VERSION }}
-          name: Intent Model ${{ steps.version.outputs.VERSION }}
+          name: Intent Model Community ${{ steps.version.outputs.VERSION }}
           files: |
-            community-model.zip
-            community-model.zip.sha256
-
-      # =========================
-      # AZURE UPLOAD (PRO)
-      # =========================
-      - name: Azure Login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      - name: Upload Pro Model to Azure
-        run: |
-          az storage blob upload \
-            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
-            --account-key ${{ secrets.AZURE_STORAGE_KEY }} \
-            --container-name ${{ secrets.AZURE_STORAGE_CONTAINER }} \
-            --name "pro/${{ steps.version.outputs.VERSION }}/pro-model.enc.zip" \
-            --file "pro-model.enc.zip" \
-            --overwrite true \
-            --auth-mode login
-
-          az storage blob upload \
-            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
-            --account-key ${{ secrets.AZURE_STORAGE_KEY }} \
-            --container-name ${{ secrets.AZURE_STORAGE_CONTAINER }} \
-            --name "pro/${{ steps.version.outputs.VERSION }}/pro-model.enc.zip.sha256" \
-            --file "pro-model.enc.zip.sha256" \
-            --overwrite true \
-            --auth-mode login
+            intent-model-community.zip
+            intent-model-community.zip.sha256
