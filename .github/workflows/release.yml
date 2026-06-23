@@ -92,7 +92,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.VERSION }}
-          name: Intent Model Community ${{ steps.version.outputs.VERSION }}
+          name: Intent Model CE ${{ steps.version.outputs.VERSION }}
           files: |
             intent-model-community.zip
             intent-model-community.zip.sha256
