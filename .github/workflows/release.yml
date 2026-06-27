@@ -59,7 +59,7 @@ jobs:
       - name: Checkout dataset repository
         uses: actions/checkout@v4
         with:
-          repository: synentra/intent-dataset
+          repository: synentra/synentra-intent-data
           token: ${{ steps.app-token.outputs.token }}
           path: private-dataset
 
