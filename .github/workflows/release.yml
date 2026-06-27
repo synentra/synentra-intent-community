@@ -48,11 +48,26 @@ jobs:
       # =========================
       # COMMUNITY TRAINING
       # =========================
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: synentra
+
+      - name: Checkout dataset repository
+        uses: actions/checkout@v4
+        with:
+          repository: synentra/intent-dataset
+          token: ${{ steps.app-token.outputs.token }}
+          path: private-dataset
+
       - name: Train community model
         run: |
           python src/train_intent_classifier.py \
             --model_path distilbert-base-uncased \
-            --data_path data/dataset.csv \
+            --data_path private-dataset/data/community/dataset.csv \
             --model_type community \
             --export_onnx \
             --output_dir community_model \
