@@ -1,4 +1,4 @@
-name: Train and Release Intent Model
+name: Train and Release Intent Models
 
 on:
   workflow_dispatch:
@@ -15,6 +15,7 @@ permissions:
 env:
   PYTHON_VERSION: "3.10"
   DOTNET_VERSION: "10.0.x"
+  MODELS: "64 128 256 512"
 
 jobs:
   train-and-release:
@@ -31,7 +32,6 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      # Cache pip packages – keyed by the workflow file itself
       - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
@@ -45,9 +45,6 @@ jobs:
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install transformers datasets scikit-learn pandas "optimum[onnxruntime]" accelerate
 
-      # =========================
-      # COMMUNITY TRAINING
-      # =========================
       - name: Generate GitHub App token
         id: app-token
         uses: actions/create-github-app-token@v2
@@ -63,51 +60,83 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           path: private-dataset
 
-      - name: Train community model
-        run: |
-          python src/train_intent_classifier.py \
-            --model_path distilbert-base-uncased \
-            --data_path private-dataset/data/community/dataset.csv \
-            --model_type community \
-            --export_onnx \
-            --output_dir community_model \
-            --onnx_output_dir community_model_onnx
-
-      - name: Build community artifacts
+      # =========================
+      # TRAIN ALL FOUR MODELS
+      # =========================
+      - name: Train community models (64, 128, 256, 512)
         shell: bash
         run: |
-          mkdir -p community_release
+          mkdir -p release_artifacts
+          VERSION="${{ steps.version.outputs.VERSION }}"
 
-          cp community_model_onnx/model.onnx community_release/
-          cp community_model/vocab.txt community_release/
+          for MAXLEN in $MODELS; do
+            echo "Training community model with max_length=$MAXLEN (version $VERSION)"
+            
+            MODEL_DIR="community_model_$MAXLEN"
+            ONNX_DIR="${MODEL_DIR}_onnx"
+            ZIP_NAME="intent-model-community-${MAXLEN}.zip"
 
-          python << 'PYEOF'
-          import json
-          with open('community_model_onnx/config.json') as f:
-              config = json.load(f)
-          labels = [config['id2label'][str(i)] for i in range(len(config['id2label']))]
-          json.dump(labels, open('community_release/labels.json','w'))
-          PYEOF
+            python src/train_intent_classifier.py \
+              --model_path distilbert-base-uncased \
+              --data_path private-dataset/data/community/dataset.csv \
+              --model_type community \
+              --export_onnx \
+              --max_length "$MAXLEN" \
+              --version "$VERSION" \
+              --output_dir "$MODEL_DIR" \
+              --onnx_output_dir "$ONNX_DIR"
 
-          echo "${{ steps.version.outputs.VERSION }}" > community_release/version.txt
+            # Build release folder
+            mkdir -p release_temp
+            cp "$ONNX_DIR/model.onnx" release_temp/
+            cp "$MODEL_DIR/vocab.txt" release_temp/
+            # copy metadata
+            cp "$ONNX_DIR/metadata.json" release_temp/ 2>/dev/null || true
 
-          (cd community_release && zip -r ../intent-model-community.zip .)
+            # Generate labels.json from config
+            python << 'PYEOF'
+            import json
+            import sys
+            import os
+            onnx_dir = os.environ.get('ONNX_DIR')
+            if not onnx_dir:
+                sys.exit(1)
+            config_path = os.path.join(onnx_dir, 'config.json')
+            with open(config_path) as f:
+                config = json.load(f)
+            labels = [config['id2label'][str(i)] for i in range(len(config['id2label']))]
+            out_path = os.path.join('release_temp', 'labels.json')
+            with open(out_path, 'w') as f:
+                json.dump(labels, f)
+            PYEOF
+            export ONNX_DIR="$ONNX_DIR"
+
+            # Zip the release
+            (cd release_temp && zip -r "../release_artifacts/$ZIP_NAME" .)
+
+            # Cleanup
+            rm -rf release_temp
+            rm -rf "$MODEL_DIR" "$ONNX_DIR"
+          done
 
       # =========================
-      # CHECKSUMS
+      # GENERATE CHECKSUMS
       # =========================
       - name: Generate checksums
         run: |
-          sha256sum intent-model-community.zip > intent-model-community.zip.sha256
+          cd release_artifacts
+          for file in *.zip; do
+            sha256sum "$file" > "$file.sha256"
+          done
 
       # =========================
-      # GITHUB RELEASE (COMMUNITY)
+      # GITHUB RELEASE
       # =========================
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.VERSION }}
-          name: Intent Model CE ${{ steps.version.outputs.VERSION }}
+          name: Intent Models CE ${{ steps.version.outputs.VERSION }}
           files: |
-            intent-model-community.zip
-            intent-model-community.zip.sha256
+            release_artifacts/intent-model-community-*.zip
+            release_artifacts/*.sha256
