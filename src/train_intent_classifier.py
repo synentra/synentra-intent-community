@@ -8,8 +8,10 @@ versions while always using the DistilBERT architecture.
 """
 
 import argparse
+import json
 import logging
 import os
+from datetime import datetime
 from pathlib import Path
 
 import numpy as np
@@ -112,6 +114,13 @@ def parse_args() -> argparse.Namespace:
         default="./intent_model_onnx",
         help="Directory to save the ONNX model (only used if --export_onnx is set).",
     )
+
+    parser.add_argument(
+        "--version",
+        type=str,
+        default="1.0",
+        help="Model version string (e.g., '1.0', '2.1.3'). Saved in metadata/config.",
+    )
     return parser.parse_args()
 
 
@@ -161,6 +170,43 @@ def prepare_datasets(data_path: str, tokenizer, max_length: int, seed: int):
     return train_dataset, eval_dataset, num_labels, label2id, id2label
 
 
+																					 
+	   
+																	
+																					 
+	   
+																		
+							  
+
+								  
+						
+																											 
+						   
+																						  
+						   
+																							 
+		 
+																								   
+
+				
+								
+								
+								   
+								   
+																 
+												 
+	 
+
+									
+												 
+
+													  
+									   
+										
+
+															 
+
+
 def main():
     args = parse_args()
 
@@ -169,6 +215,7 @@ def main():
 
     logger.info(f"Loading DistilBERT tokenizer and model from: {args.model_path}")
     logger.info(f"Model type: {args.model_type}")
+    logger.info(f"Model version: {args.version}")
 
     # Use only DistilBERT classes – no AutoModel, no other architectures.
     tokenizer = DistilBertTokenizer.from_pretrained(args.model_path)
@@ -185,6 +232,9 @@ def main():
         label2id=label2id,
         id2label=id2label,
     )
+
+    model.config.version = args.version
+    model.config.model_type_meta = args.model_type  # also store the type for provenance
 
     # Training arguments
     training_args = TrainingArguments(
@@ -219,6 +269,20 @@ def main():
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
     logger.info(f"Model and tokenizer saved to {output_dir}")
+
+    metadata = {
+        "version": args.version,
+        "model_type": args.model_type,
+        "max_length": args.max_length,
+        "num_labels": num_labels,
+        "trained_at": datetime.now().isoformat(),
+        "dataset_size": len(train_dataset) + len(eval_dataset)
+    }
+
+    metadata_path = output_dir / "metadata.json"
+    with open(metadata_path, "w") as f:
+        json.dump(metadata, f, indent=2)
+    logger.info(f"Metadata saved to {metadata_path}")
 
     # Optional ONNX export
     if args.export_onnx:
