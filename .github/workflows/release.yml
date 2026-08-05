@@ -94,22 +94,18 @@ jobs:
             cp "$ONNX_DIR/metadata.json" release_temp/ 2>/dev/null || true
 
             # Generate labels.json from config
-            python << 'PYEOF'
-            import json
-            import sys
-            import os
-            onnx_dir = os.environ.get('ONNX_DIR')
+            python -c "
+            import json, os, sys
+            onnx_dir = sys.argv[1]
             if not onnx_dir:
                 sys.exit(1)
             config_path = os.path.join(onnx_dir, 'config.json')
             with open(config_path) as f:
                 config = json.load(f)
             labels = [config['id2label'][str(i)] for i in range(len(config['id2label']))]
-            out_path = os.path.join('release_temp', 'labels.json')
-            with open(out_path, 'w') as f:
+            with open('release_temp/labels.json', 'w') as f:
                 json.dump(labels, f)
-            PYEOF
-            export ONNX_DIR="$ONNX_DIR"
+            " "$ONNX_DIR"
 
             # Zip the release
             (cd release_temp && zip -r "../release_artifacts/$ZIP_NAME" .)
