@@ -13,6 +13,7 @@ import logging
 import os
 from datetime import datetime
 from pathlib import Path
+import shutil
 
 import numpy as np
 import pandas as pd
@@ -299,6 +300,13 @@ def main():
             ort_output_dir = Path(args.onnx_output_dir)
             ort_output_dir.mkdir(parents=True, exist_ok=True)
             ort_model.save_pretrained(ort_output_dir)
+
+            # Include Synentra metadata with the deployable ONNX model
+            shutil.copy2(
+                output_dir / "metadata.json",
+                ort_output_dir / "metadata.json",
+            )
+
             logger.info(f"ONNX model saved to {ort_output_dir}")
     else:
         logger.info("Skipping ONNX export (use --export_onnx to enable).")

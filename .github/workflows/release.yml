@@ -81,13 +81,14 @@ jobs:
             --onnx_output_dir "$ONNX_DIR"
 
           # Build release folder
+
+          python src/generate_labels_json.py "$ONNX_DIR"
+          
           mkdir -p release_temp
           cp "$ONNX_DIR/model.onnx" release_temp/
           cp "$MODEL_DIR/vocab.txt" release_temp/
-          cp "$ONNX_DIR/metadata.json" release_temp/ 2>/dev/null || true
-
-          # Generate labels.json
-          python src/generate_labels_json.py "$ONNX_DIR"
+          cp "$ONNX_DIR/metadata.json" release_temp/
+          cp "$ONNX_DIR/labels.json" release_temp/
 
           # Create release artifact directory and zip
           mkdir -p release_artifacts
