@@ -21,10 +21,10 @@ jobs:
   # -------------------------------------------------------
   train:
     name: Train max_length=${{ matrix.max_length }}
-    runs-on: self-hosted
+    runs-on: [self-hosted, linux, x64, gpu]
     strategy:
       matrix:
-        max_length: [64, 128]
+        max_length: [512]
 
     steps:
       - uses: actions/checkout@v4
