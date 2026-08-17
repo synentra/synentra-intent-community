@@ -1,0 +1,9 @@
+numpy
+pandas
+scikit-learn
+
+transformers
+datasets
+accelerate
+
+optimum-onnx[onnxruntime]
