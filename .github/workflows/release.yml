@@ -61,6 +61,34 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           path: private-dataset
 
+      - name: Verify training GPU
+        run: |
+          echo "Python:"
+          which python
+      
+          echo "CUDA_VISIBLE_DEVICES:"
+          echo "${CUDA_VISIBLE_DEVICES:-<not set>}"
+      
+          nvidia-smi
+      
+          python - <<'PY'
+          import torch
+          import transformers
+          import accelerate
+      
+          print("PyTorch:", torch.__version__)
+          print("Transformers:", transformers.__version__)
+          print("Accelerate:", accelerate.__version__)
+          print("CUDA available:", torch.cuda.is_available())
+          print("CUDA runtime:", torch.version.cuda)
+          print("GPU count:", torch.cuda.device_count())
+      
+          if torch.cuda.is_available():
+              print("GPU:", torch.cuda.get_device_name(0))
+      
+          assert torch.cuda.is_available(), "CUDA unavailable inside GitHub Actions"
+          PY
+
       - name: Train model
         run: |
           MAXLEN=${{ matrix.max_length }}
