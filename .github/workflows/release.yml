@@ -16,15 +16,9 @@ env:
   PYTHON_VERSION: "3.10"
 
 jobs:
-  # -------------------------------------------------------
-  # Train each model variant in parallel
-  # -------------------------------------------------------
   train:
-    name: Train max_length=${{ matrix.max_length }}
+    name: Train community model
     runs-on: [self-hosted, linux, x64, gpu]
-    strategy:
-      matrix:
-        max_length: [512]
 
     steps:
       - uses: actions/checkout@v4
@@ -75,37 +69,38 @@ jobs:
         run: |
           echo "Python:"
           which python
-      
+
           echo "CUDA_VISIBLE_DEVICES:"
           echo "${CUDA_VISIBLE_DEVICES:-<not set>}"
-      
+
           nvidia-smi
-      
+
           python - <<'PY'
           import torch
           import transformers
           import accelerate
-      
+
           print("PyTorch:", torch.__version__)
           print("Transformers:", transformers.__version__)
           print("Accelerate:", accelerate.__version__)
           print("CUDA available:", torch.cuda.is_available())
           print("CUDA runtime:", torch.version.cuda)
           print("GPU count:", torch.cuda.device_count())
-      
+
           if torch.cuda.is_available():
               print("GPU:", torch.cuda.get_device_name(0))
-      
+
           assert torch.cuda.is_available(), "CUDA unavailable inside GitHub Actions"
           PY
 
       - name: Train model
         run: |
-          MAXLEN=${{ matrix.max_length }}
+          MAXLEN=512
           VERSION="${{ github.event.inputs.rel_version }}"
-          MODEL_DIR="community_model_${MAXLEN}"
+          MODEL_DIR="community_model"
           ONNX_DIR="${MODEL_DIR}_onnx"
-          ZIP_NAME="intent-model-community-${MAXLEN}.zip"	   
+          ZIP_NAME="intent-model-community.zip"
+
           echo "Training community model with max_length=$MAXLEN (version $VERSION)"
 
           python src/train_intent_classifier.py \
@@ -118,51 +113,41 @@ jobs:
             --output_dir "$MODEL_DIR" \
             --onnx_output_dir "$ONNX_DIR"
 
-          # Build release folder
-
           python src/generate_labels_json.py "$ONNX_DIR"
-          
+
           mkdir -p release_temp
           cp "$ONNX_DIR/model.onnx" release_temp/
           cp "$MODEL_DIR/vocab.txt" release_temp/
           cp "$ONNX_DIR/metadata.json" release_temp/
           cp "$ONNX_DIR/labels.json" release_temp/
 
-          # Create release artifact directory and zip
           mkdir -p release_artifacts
           (cd release_temp && zip -r "../release_artifacts/$ZIP_NAME" .)
 
-          # Clean up temporary directories (keep only the zip)
           rm -rf release_temp "$MODEL_DIR" "$ONNX_DIR"
 
       - name: Upload trained model artifact
         uses: actions/upload-artifact@v4
         with:
-          name: model-community-${{ matrix.max_length }}
-          path: release_artifacts/intent-model-community-${{ matrix.max_length }}.zip
+          name: model-community
+          path: release_artifacts/intent-model-community.zip
 
-  # -------------------------------------------------------
-  # Collect all artifacts, checksum, and publish release
-  # -------------------------------------------------------
   release:
     name: Create GitHub Release
     runs-on: ubuntu-latest
-    needs: train   # waits for all matrix jobs to complete
+    needs: train
 
     steps:
-      - name: Download all model artifacts
+      - name: Download model artifact
         uses: actions/download-artifact@v4
         with:
+          name: model-community
           path: release_artifacts
-          pattern: model-community-*
-          merge-multiple: true   # flattens all files into release_artifacts/
 
-      - name: Generate checksums
+      - name: Generate checksum
         run: |
           cd release_artifacts
-          for file in *.zip; do
-            sha256sum "$file" > "$file.sha256"
-          done
+          sha256sum intent-model-community.zip > intent-model-community.zip.sha256
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -170,5 +155,5 @@ jobs:
           tag_name: ${{ github.event.inputs.rel_version }}
           name: Intent Models CE ${{ github.event.inputs.rel_version }}
           files: |
-            release_artifacts/intent-model-community-*.zip
-            release_artifacts/intent-model-community-*.zip.sha256
+            release_artifacts/intent-model-community.zip
+            release_artifacts/intent-model-community.zip.sha256
