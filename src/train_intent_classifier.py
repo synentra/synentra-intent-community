@@ -171,43 +171,6 @@ def prepare_datasets(data_path: str, tokenizer, max_length: int, seed: int):
     return train_dataset, eval_dataset, num_labels, label2id, id2label
 
 
-																					 
-	   
-																	
-																					 
-	   
-																		
-							  
-
-								  
-						
-																											 
-						   
-																						  
-						   
-																							 
-		 
-																								   
-
-				
-								
-								
-								   
-								   
-																 
-												 
-	 
-
-									
-												 
-
-													  
-									   
-										
-
-															 
-
-
 def main():
     args = parse_args()
 
@@ -276,8 +239,7 @@ def main():
         "model_type": args.model_type,
         "max_length": args.max_length,
         "num_labels": num_labels,
-        "trained_at": datetime.now().isoformat(),
-        "dataset_size": len(train_dataset) + len(eval_dataset)
+        "trained_at": datetime.now().isoformat()
     }
 
     metadata_path = output_dir / "metadata.json"
